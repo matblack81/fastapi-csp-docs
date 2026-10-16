@@ -35,11 +35,11 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/mat81black/fastapi-csp-docs"
-Repository = "https://github.com/mat81black/fastapi-csp-docs"
-Issues = "https://github.com/mat81black/fastapi-csp-docs/issues"
-Documentation = "https://github.com/mat81black/fastapi-csp-docs#readme"
-Changelog = "https://github.com/mat81black/fastapi-csp-docs/blob/main/RELEASE_NOTES.md"
+Homepage = "https://github.com/matblack81/fastapi-csp-docs"
+Repository = "https://github.com/matblack81/fastapi-csp-docs"
+Issues = "https://github.com/matblack81/fastapi-csp-docs/issues"
+Documentation = "https://github.com/matblack81/fastapi-csp-docs#readme"
+Changelog = "https://github.com/matblack81/fastapi-csp-docs/blob/main/RELEASE_NOTES.md"
 
 [dependency-groups]
 dev = [

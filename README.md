@@ -1,7 +1,7 @@
 # FastAPI CSP Docs
 
-[![Build Status](https://github.com/mat81black/fastapi-csp-docs/workflows/Test/badge.svg)](https://github.com/mat81black/fastapi-csp-docs/actions)
-[![codecov](https://codecov.io/gh/mat81black/fastapi-csp-docs/graph/badge.svg)](https://codecov.io/gh/mat81black/fastapi-csp-docs)
+[![Build Status](https://github.com/matblack81/fastapi-csp-docs/workflows/Test/badge.svg)](https://github.com/matblack81/fastapi-csp-docs/actions)
+[![codecov](https://codecov.io/gh/matblack81/fastapi-csp-docs/graph/badge.svg)](https://codecov.io/gh/matblack81/fastapi-csp-docs)
 [![pypi package](https://img.shields.io/pypi/v/fastapi-csp-docs?color=%2334D058&label=pypi%20package)](https://pypi.org/project/fastapi-csp-docs/)
 [![Supported Python versions](https://img.shields.io/pypi/pyversions/fastapi-csp-docs.svg?color=%2334D058)](https://pypi.org/project/fastapi-csp-docs/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -59,7 +59,7 @@ fastapi_csp_docs.setup(app)
 
 `docs_url`/`redoc_url` must already be `None` on the app for whichever mode you're enabling. `setup()` raises `RuntimeError` otherwise, so FastAPI's built-in inline-script docs can't silently shadow the routes it registers.
 
-Full runnable version: [`examples/assisted_app.py`](https://github.com/mat81black/fastapi-csp-docs/blob/main/examples/assisted_app.py).
+Full runnable version: [`examples/assisted_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/assisted_app.py).
 
 ### Fully self-hosted mode (no CDN at all)
 
@@ -85,7 +85,7 @@ async def swagger_ui_html():
     )
 ```
 
-Full runnable version, including the `swagger-initializer.js`/`redoc.css`/OAuth2 redirect endpoints and the vendor assets: [`examples/self_hosted_app.py`](https://github.com/mat81black/fastapi-csp-docs/blob/main/examples/self_hosted_app.py).
+Full runnable version, including the `swagger-initializer.js`/`redoc.css`/OAuth2 redirect endpoints and the vendor assets: [`examples/self_hosted_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/self_hosted_app.py).
 
 ## ReDoc and Content-Security-Policy
 
@@ -95,7 +95,7 @@ Beyond the inline `<script>`/`<style>` tags this package removes from FastAPI's 
 
 **Web Worker (`worker-src`)**: ReDoc runs its search indexing in a Web Worker, instantiated from a `blob:` URL rather than a separate `.js` file: the worker's entire source is inlined as a string inside `redoc.standalone.js`, so there's no real file URL to point `worker-src` at instead. Worker instantiation is governed by `worker-src`, not `script-src`; without it set explicitly, browsers fall back to `script-src`, which never matches a `blob:` URL, so search breaks the first time it's used (`Creating a worker from 'blob:...' violates ... worker-src`). Two ways to fix it:
 - Allow it explicitly: `worker-src 'self' blob:`, which is what `assisted_app.py` and the other `setup()`-based examples do, since `setup()` deliberately has no CSP-specific parameters (it mirrors FastAPI's own `docs_url`/`redoc_url` surface, nothing more).
-- Or skip the worker (and the search box) entirely by not using `setup()` for the ReDoc route: pass `redoc_url=None` to `setup()` and wire `/redoc` yourself with `get_redoc_html(disable_search=True)` instead, so no `blob:` is needed in `worker-src`. See [`examples/redoc_disable_search_app.py`](https://github.com/mat81black/fastapi-csp-docs/blob/main/examples/redoc_disable_search_app.py).
+- Or skip the worker (and the search box) entirely by not using `setup()` for the ReDoc route: pass `redoc_url=None` to `setup()` and wire `/redoc` yourself with `get_redoc_html(disable_search=True)` instead, so no `blob:` is needed in `worker-src`. See [`examples/redoc_disable_search_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/redoc_disable_search_app.py).
 
 **Logo image (`img-src`)**: ReDoc's "API docs by Redocly" attribution logo hardcodes an absolute `cdn.redoc.ly` URL, with no supported way to override it or point it at a local file. There's no CSP hash mechanism for images (hash-source only applies to `script-src`/`style-src`), so the only way to allow it is whitelisting that origin in `img-src`; both examples do this, since it's a small, non-code image request and doesn't weaken `script-src`/`style-src` at all. It's the one external origin left in `self_hosted_app.py`'s otherwise fully self-hosted CSP.
 
@@ -126,17 +126,17 @@ Raises `RuntimeError` if `app.docs_url`/`app.redoc_url` is still set for the mod
 
 | File                                                                                                                      | Description                                                                                     |
 |-----------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| [`examples/assisted_app.py`](https://github.com/mat81black/fastapi-csp-docs/blob/main/examples/assisted_app.py)             | `setup()` + CDN-hosted Swagger UI/ReDoc bundles, CSP header set via middleware.                    |
-| [`examples/self_hosted_app.py`](https://github.com/mat81black/fastapi-csp-docs/blob/main/examples/self_hosted_app.py)       | Fully self-hosted docs (no CDN), manual wiring, vendor assets served from `examples/static/`.       |
-| [`examples/mounted_subapp_app.py`](https://github.com/mat81black/fastapi-csp-docs/blob/main/examples/mounted_subapp_app.py) | `setup()` on a sub-app mounted under a prefix (`app.mount("/api", sub_app)`), so doc URLs resolve correctly via the ASGI `root_path`. |
-| [`examples/root_path_app.py`](https://github.com/mat81black/fastapi-csp-docs/blob/main/examples/root_path_app.py)           | `setup()` on an app created with `FastAPI(root_path="/api")`, the reverse-proxy way of setting `root_path`, as opposed to mounting a sub-app. |
-| [`examples/oauth2_redirect_app.py`](https://github.com/mat81black/fastapi-csp-docs/blob/main/examples/oauth2_redirect_app.py) | OAuth2 "Authorize" flow with a real security scheme, exercising the `/docs/oauth2-redirect` endpoint `setup()` registers. |
-| [`examples/redoc_disable_search_app.py`](https://github.com/mat81black/fastapi-csp-docs/blob/main/examples/redoc_disable_search_app.py) | `setup()` for Swagger UI + manual ReDoc wiring with `disable_search=True`, avoiding `worker-src 'self' blob:` entirely. |
+| [`examples/assisted_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/assisted_app.py)             | `setup()` + CDN-hosted Swagger UI/ReDoc bundles, CSP header set via middleware.                    |
+| [`examples/self_hosted_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/self_hosted_app.py)       | Fully self-hosted docs (no CDN), manual wiring, vendor assets served from `examples/static/`.       |
+| [`examples/mounted_subapp_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/mounted_subapp_app.py) | `setup()` on a sub-app mounted under a prefix (`app.mount("/api", sub_app)`), so doc URLs resolve correctly via the ASGI `root_path`. |
+| [`examples/root_path_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/root_path_app.py)           | `setup()` on an app created with `FastAPI(root_path="/api")`, the reverse-proxy way of setting `root_path`, as opposed to mounting a sub-app. |
+| [`examples/oauth2_redirect_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/oauth2_redirect_app.py) | OAuth2 "Authorize" flow with a real security scheme, exercising the `/docs/oauth2-redirect` endpoint `setup()` registers. |
+| [`examples/redoc_disable_search_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/redoc_disable_search_app.py) | `setup()` for Swagger UI + manual ReDoc wiring with `disable_search=True`, avoiding `worker-src 'self' blob:` entirely. |
 
 ## Release Notes
 
-See [RELEASE_NOTES](https://github.com/mat81black/fastapi-csp-docs/blob/main/release-notes.md).
+See [RELEASE_NOTES](https://github.com/matblack81/fastapi-csp-docs/blob/main/release-notes.md).
 
 ## License
 
-MIT. See [LICENSE](https://github.com/mat81black/fastapi-csp-docs/blob/main/LICENSE).
+MIT. See [LICENSE](https://github.com/matblack81/fastapi-csp-docs/blob/main/LICENSE).

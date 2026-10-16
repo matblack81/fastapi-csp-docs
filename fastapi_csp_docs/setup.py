@@ -31,7 +31,7 @@ def setup(
     would shadow the routes registered here.
 
     Read more about it in the
-    [README](https://github.com/mat81black/fastapi-csp-docs#readme).
+    [README](https://github.com/matblack81/fastapi-csp-docs#readme).
 
     Silently skips wiring a route if `app.openapi_url` is `None` — there's no OpenAPI
     schema for Swagger UI/ReDoc to render in that case.
