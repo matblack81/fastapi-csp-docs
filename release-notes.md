@@ -2,6 +2,8 @@
 
 ## Latest Changes
 
+## 1.0.4 (2026-10-16)
+
 ### Internal
 
 * 🔧 Update GitHub owner name. PR [#59](https://github.com/matblack81/fastapi-csp-docs/pull/59) by [@matblack81](https://github.com/matblack81).
