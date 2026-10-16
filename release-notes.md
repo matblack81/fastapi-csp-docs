@@ -7,54 +7,54 @@
 ### Internal
 
 * 🔧 Update GitHub owner name. PR [#59](https://github.com/matblack81/fastapi-csp-docs/pull/59) by [@matblack81](https://github.com/matblack81).
-* ⬆ Bump the python-packages group with 4 updates. PR [#58](https://github.com/mat81black/fastapi-csp-docs/pull/58) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆ Bump the python-packages group with 3 updates. PR [#57](https://github.com/mat81black/fastapi-csp-docs/pull/57) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆ Bump the github-actions group with 2 updates. PR [#56](https://github.com/mat81black/fastapi-csp-docs/pull/56) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump the python-packages group with 4 updates. PR [#58](https://github.com/matblack81/fastapi-csp-docs/pull/58) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump the python-packages group with 3 updates. PR [#57](https://github.com/matblack81/fastapi-csp-docs/pull/57) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump the github-actions group with 2 updates. PR [#56](https://github.com/matblack81/fastapi-csp-docs/pull/56) by [@dependabot[bot]](https://github.com/apps/dependabot).
 
 ## 1.0.3 (2026-09-22)
 
 ### Docs
 
-* 📝 Fix release notes link still pointing to the old uppercase filename. PR [#44](https://github.com/mat81black/fastapi-csp-docs/pull/44) by [@mat81black](https://github.com/mat81black).
+* 📝 Fix release notes link still pointing to the old uppercase filename. PR [#44](https://github.com/matblack81/fastapi-csp-docs/pull/44) by [@matblack81](https://github.com/matblack81).
 
 ### Internal
 
-* ⬆ Bump anyio from 4.14.1 to 4.14.2. PR [#51](https://github.com/mat81black/fastapi-csp-docs/pull/51) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆ Bump the python-packages group with 8 updates. PR [#54](https://github.com/mat81black/fastapi-csp-docs/pull/54) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆ Bump the github-actions group with 3 updates. PR [#53](https://github.com/mat81black/fastapi-csp-docs/pull/53) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* 🐛 Tolerate anyio's BlockingPortal deprecation warning in tests. PR [#52](https://github.com/mat81black/fastapi-csp-docs/pull/52) by [@mat81black](https://github.com/mat81black).
-* ⬆ Bump pre-commit hooks. PR [#50](https://github.com/mat81black/fastapi-csp-docs/pull/50) by [@mat81black](https://github.com/mat81black).
-* ⬆ Bump the python-packages group with 4 updates. PR [#49](https://github.com/mat81black/fastapi-csp-docs/pull/49) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆ Bump re-actors/alls-green from 1.2.2 to 1.3.0 in the github-actions group. PR [#48](https://github.com/mat81black/fastapi-csp-docs/pull/48) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆ Bump fastapi from 0.140.0 to 0.141.1. PR [#47](https://github.com/mat81black/fastapi-csp-docs/pull/47) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆ Bump the python-packages group with 9 updates. PR [#46](https://github.com/mat81black/fastapi-csp-docs/pull/46) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆ Bump the github-actions group with 2 updates. PR [#45](https://github.com/mat81black/fastapi-csp-docs/pull/45) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* 👷 Replace actions/labeler with Latest Changes App auto-labeling. PR [#43](https://github.com/mat81black/fastapi-csp-docs/pull/43) by [@mat81black](https://github.com/mat81black).
+* ⬆ Bump anyio from 4.14.1 to 4.14.2. PR [#51](https://github.com/matblack81/fastapi-csp-docs/pull/51) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump the python-packages group with 8 updates. PR [#54](https://github.com/matblack81/fastapi-csp-docs/pull/54) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump the github-actions group with 3 updates. PR [#53](https://github.com/matblack81/fastapi-csp-docs/pull/53) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* 🐛 Tolerate anyio's BlockingPortal deprecation warning in tests. PR [#52](https://github.com/matblack81/fastapi-csp-docs/pull/52) by [@matblack81](https://github.com/matblack81).
+* ⬆ Bump pre-commit hooks. PR [#50](https://github.com/matblack81/fastapi-csp-docs/pull/50) by [@matblack81](https://github.com/matblack81).
+* ⬆ Bump the python-packages group with 4 updates. PR [#49](https://github.com/matblack81/fastapi-csp-docs/pull/49) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump re-actors/alls-green from 1.2.2 to 1.3.0 in the github-actions group. PR [#48](https://github.com/matblack81/fastapi-csp-docs/pull/48) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump fastapi from 0.140.0 to 0.141.1. PR [#47](https://github.com/matblack81/fastapi-csp-docs/pull/47) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump the python-packages group with 9 updates. PR [#46](https://github.com/matblack81/fastapi-csp-docs/pull/46) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump the github-actions group with 2 updates. PR [#45](https://github.com/matblack81/fastapi-csp-docs/pull/45) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* 👷 Replace actions/labeler with Latest Changes App auto-labeling. PR [#43](https://github.com/matblack81/fastapi-csp-docs/pull/43) by [@matblack81](https://github.com/matblack81).
 
 ## 1.0.2 (2026-08-12)
 
 ### Internal
 
-* 👷 Tag CI action pins for sync tracking. PR [#41](https://github.com/mat81black/fastapi-csp-docs/pull/41) by [@mat81black](https://github.com/mat81black).
-* 👷 Sync CI, pre-commit, and release scripts workflows with the latest template. PR [#40](https://github.com/mat81black/fastapi-csp-docs/pull/40) by [@mat81black](https://github.com/mat81black).
-* 🐛 Fix release date defaulting to the date the script was imported. PR [#39](https://github.com/mat81black/fastapi-csp-docs/pull/39) by [@mat81black](https://github.com/mat81black).
-* 🐛 Fix partial release state when release notes write fails. PR [#38](https://github.com/mat81black/fastapi-csp-docs/pull/38) by [@mat81black](https://github.com/mat81black).
+* 👷 Tag CI action pins for sync tracking. PR [#41](https://github.com/matblack81/fastapi-csp-docs/pull/41) by [@matblack81](https://github.com/matblack81).
+* 👷 Sync CI, pre-commit, and release scripts workflows with the latest template. PR [#40](https://github.com/matblack81/fastapi-csp-docs/pull/40) by [@matblack81](https://github.com/matblack81).
+* 🐛 Fix release date defaulting to the date the script was imported. PR [#39](https://github.com/matblack81/fastapi-csp-docs/pull/39) by [@matblack81](https://github.com/matblack81).
+* 🐛 Fix partial release state when release notes write fails. PR [#38](https://github.com/matblack81/fastapi-csp-docs/pull/38) by [@matblack81](https://github.com/matblack81).
 
 ## 1.0.1 (2026-08-05)
 
 ### Internal
 
-* ✅ Add test for all runnable examples. PR [#36](https://github.com/mat81black/fastapi-csp-docs/pull/36) by [@mat81black](https://github.com/mat81black).
-* ✅ Close remaining test coverage gaps in the package. PR [#35](https://github.com/mat81black/fastapi-csp-docs/pull/35) by [@mat81black](https://github.com/mat81black).
-* ♻️ Import Response types from fastapi in the remaining examples and README. PR [#34](https://github.com/mat81black/fastapi-csp-docs/pull/34) by [@mat81black](https://github.com/mat81black).
-* 🐛 Reject invalid bump types and cover prepare_release's untested error paths. PR [#33](https://github.com/mat81black/fastapi-csp-docs/pull/33) by [@mat81black](https://github.com/mat81black).
-* 🐛 Fix partial release state when release notes update fails. PR [#32](https://github.com/mat81black/fastapi-csp-docs/pull/32) by [@mat81black](https://github.com/mat81black).
-* 🔒️ Escape interpolated values in generated Swagger UI/ReDoc pages. PR [#31](https://github.com/mat81black/fastapi-csp-docs/pull/31) by [@mat81black](https://github.com/mat81black).
-* ✅ Prove PR test changes actually catch a regression before merging. PR [#30](https://github.com/mat81black/fastapi-csp-docs/pull/30) by [@mat81black](https://github.com/mat81black).
-* ⬆️ Bump tiangolo/latest-changes to 0.7.1. PR [#29](https://github.com/mat81black/fastapi-csp-docs/pull/29) by [@mat81black](https://github.com/mat81black).
-* ⬆ Bump fastapi from 0.139.2 to 0.140.0. PR [#28](https://github.com/mat81black/fastapi-csp-docs/pull/28) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆ Bump the python-packages group with 5 updates. PR [#27](https://github.com/mat81black/fastapi-csp-docs/pull/27) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆ Bump zizmorcore/zizmor-action from 0.6.0 to 0.6.1 in the github-actions group. PR [#26](https://github.com/mat81black/fastapi-csp-docs/pull/26) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ✅ Add test for all runnable examples. PR [#36](https://github.com/matblack81/fastapi-csp-docs/pull/36) by [@matblack81](https://github.com/matblack81).
+* ✅ Close remaining test coverage gaps in the package. PR [#35](https://github.com/matblack81/fastapi-csp-docs/pull/35) by [@matblack81](https://github.com/matblack81).
+* ♻️ Import Response types from fastapi in the remaining examples and README. PR [#34](https://github.com/matblack81/fastapi-csp-docs/pull/34) by [@matblack81](https://github.com/matblack81).
+* 🐛 Reject invalid bump types and cover prepare_release's untested error paths. PR [#33](https://github.com/matblack81/fastapi-csp-docs/pull/33) by [@matblack81](https://github.com/matblack81).
+* 🐛 Fix partial release state when release notes update fails. PR [#32](https://github.com/matblack81/fastapi-csp-docs/pull/32) by [@matblack81](https://github.com/matblack81).
+* 🔒️ Escape interpolated values in generated Swagger UI/ReDoc pages. PR [#31](https://github.com/matblack81/fastapi-csp-docs/pull/31) by [@matblack81](https://github.com/matblack81).
+* ✅ Prove PR test changes actually catch a regression before merging. PR [#30](https://github.com/matblack81/fastapi-csp-docs/pull/30) by [@matblack81](https://github.com/matblack81).
+* ⬆️ Bump tiangolo/latest-changes to 0.7.1. PR [#29](https://github.com/matblack81/fastapi-csp-docs/pull/29) by [@matblack81](https://github.com/matblack81).
+* ⬆ Bump fastapi from 0.139.2 to 0.140.0. PR [#28](https://github.com/matblack81/fastapi-csp-docs/pull/28) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump the python-packages group with 5 updates. PR [#27](https://github.com/matblack81/fastapi-csp-docs/pull/27) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump zizmorcore/zizmor-action from 0.6.0 to 0.6.1 in the github-actions group. PR [#26](https://github.com/matblack81/fastapi-csp-docs/pull/26) by [@dependabot[bot]](https://github.com/apps/dependabot).
 
 ## 1.0.0 (2026-07-28)
 🎉 First stable release of fastapi-csp-docs.
@@ -63,37 +63,37 @@
 
 ### Internal
 
-* ⬆ Bump fastapi from 0.139.0 to 0.139.2. PR [#23](https://github.com/mat81black/fastapi-csp-docs/pull/23) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆ Bump the github-actions group with 4 updates. PR [#21](https://github.com/mat81black/fastapi-csp-docs/pull/21) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆ Bump the python-packages group with 4 updates. PR [#22](https://github.com/mat81black/fastapi-csp-docs/pull/22) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆ Bump pre-commit hooks. PR [#20](https://github.com/mat81black/fastapi-csp-docs/pull/20) by [@mat81black](https://github.com/mat81black).
-* 👷 Replace Dependabot pre-commit ecosystem with custom bump workflow. PR [#19](https://github.com/mat81black/fastapi-csp-docs/pull/19) by [@mat81black](https://github.com/mat81black).
-* ⬆ Bump the python-packages group with 5 updates. PR [#18](https://github.com/mat81black/fastapi-csp-docs/pull/18) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆ Bump zizmorcore/zizmor-action from 0.5.7 to 0.6.0 in the github-actions group. PR [#17](https://github.com/mat81black/fastapi-csp-docs/pull/17) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆ Bump https://github.com/crate-ci/typos from v1.48.0 to 5.0.7 in the pre-commit group. PR [#15](https://github.com/mat81black/fastapi-csp-docs/pull/15) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆ Bump the github-actions group with 3 updates. PR [#16](https://github.com/mat81black/fastapi-csp-docs/pull/16) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump fastapi from 0.139.0 to 0.139.2. PR [#23](https://github.com/matblack81/fastapi-csp-docs/pull/23) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump the github-actions group with 4 updates. PR [#21](https://github.com/matblack81/fastapi-csp-docs/pull/21) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump the python-packages group with 4 updates. PR [#22](https://github.com/matblack81/fastapi-csp-docs/pull/22) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump pre-commit hooks. PR [#20](https://github.com/matblack81/fastapi-csp-docs/pull/20) by [@matblack81](https://github.com/matblack81).
+* 👷 Replace Dependabot pre-commit ecosystem with custom bump workflow. PR [#19](https://github.com/matblack81/fastapi-csp-docs/pull/19) by [@matblack81](https://github.com/matblack81).
+* ⬆ Bump the python-packages group with 5 updates. PR [#18](https://github.com/matblack81/fastapi-csp-docs/pull/18) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump zizmorcore/zizmor-action from 0.5.7 to 0.6.0 in the github-actions group. PR [#17](https://github.com/matblack81/fastapi-csp-docs/pull/17) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump https://github.com/crate-ci/typos from v1.48.0 to 5.0.7 in the pre-commit group. PR [#15](https://github.com/matblack81/fastapi-csp-docs/pull/15) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump the github-actions group with 3 updates. PR [#16](https://github.com/matblack81/fastapi-csp-docs/pull/16) by [@dependabot[bot]](https://github.com/apps/dependabot).
 
 ## 0.1.3 (2026-07-10)
 
 ### Refactors
 
-* ♻️ Align imports with FastAPI's public dependency contract. PR [#13](https://github.com/mat81black/fastapi-csp-docs/pull/13) by [@mat81black](https://github.com/mat81black).
+* ♻️ Align imports with FastAPI's public dependency contract. PR [#13](https://github.com/matblack81/fastapi-csp-docs/pull/13) by [@matblack81](https://github.com/matblack81).
 
 ### Internal
 
-* 🔧 Add test coverage for setup()'s openapi and root_path edge cases. PR [#12](https://github.com/mat81black/fastapi-csp-docs/pull/12) by [@mat81black](https://github.com/mat81black).
+* 🔧 Add test coverage for setup()'s openapi and root_path edge cases. PR [#12](https://github.com/matblack81/fastapi-csp-docs/pull/12) by [@matblack81](https://github.com/matblack81).
 
 ## 0.1.2 (2026-07-09)
 
 ### Internal
 
-* 🔧 Integrate Codecov for coverage tracking and update README. PR [#10](https://github.com/mat81black/fastapi-csp-docs/pull/10) by [@mat81black](https://github.com/mat81black).
+* 🔧 Integrate Codecov for coverage tracking and update README. PR [#10](https://github.com/matblack81/fastapi-csp-docs/pull/10) by [@matblack81](https://github.com/matblack81).
 
 ## 0.1.1 (2026-07-08)
 
 ### Docs
 
-* 📝 Update README badge styles and unwrap paragraphs. PR [#8](https://github.com/mat81black/fastapi-csp-docs/pull/8) by [@mat81black](https://github.com/mat81black).
+* 📝 Update README badge styles and unwrap paragraphs. PR [#8](https://github.com/matblack81/fastapi-csp-docs/pull/8) by [@matblack81](https://github.com/matblack81).
 
 ## 0.1.0 (2026-07-08)
 
