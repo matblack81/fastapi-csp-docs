@@ -13,7 +13,7 @@ FastAPI's built-in `/docs`, `/redoc`, and OAuth2 redirect pages embed inline `<s
 - **Drop-in `setup()`**: one call replaces FastAPI's built-in `/docs`, `/redoc`, and OAuth2 redirect wiring, with no inline script or style left anywhere.
 - **Fails fast on misconfiguration**: raises `RuntimeError` if the app's built-in docs aren't disabled first, instead of silently letting them shadow the CSP-safe routes.
 - **CDN or fully self-hosted**: works with the default jsdelivr CDN (`script-src 'self' <cdn-host>`) or entirely offline with your own static assets (`script-src 'self'`, zero external origins).
-- **Reverse-proxy / sub-app aware**: doc URLs include the ASGI `root_path` computed per request, so mounting under a prefix (`app.mount("/api", sub_app)`) works out of the box.
+- **Reverse-proxy / sub-app aware**: doc URLs include the ASGI `root_path` computed per request, so mounting under a prefix (`app.mount("/api", sub_app)`) and running behind a reverse proxy that strips a prefix (server started with `--root-path`, see FastAPI's [Behind a Proxy](https://fastapi.tiangolo.com/advanced/behind-a-proxy/)) work out of the box.
 - **Independently configurable mount paths**: `docs_url`/`redoc_url` are explicit `setup()` parameters, each can be disabled on its own by passing `None`.
 - **Content generators exported for manual wiring**: the same building blocks `setup()` uses internally are public, for a fully self-hosted setup with no CDN at all.
 
@@ -129,7 +129,6 @@ Raises `RuntimeError` if `app.docs_url`/`app.redoc_url` is still set for the mod
 | [`examples/assisted_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/assisted_app.py)             | `setup()` + CDN-hosted Swagger UI/ReDoc bundles, CSP header set via middleware.                    |
 | [`examples/self_hosted_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/self_hosted_app.py)       | Fully self-hosted docs (no CDN), manual wiring, vendor assets served from `examples/static/`.       |
 | [`examples/mounted_subapp_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/mounted_subapp_app.py) | `setup()` on a sub-app mounted under a prefix (`app.mount("/api", sub_app)`), so doc URLs resolve correctly via the ASGI `root_path`. |
-| [`examples/root_path_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/root_path_app.py)           | `setup()` on an app created with `FastAPI(root_path="/api")`, the reverse-proxy way of setting `root_path`, as opposed to mounting a sub-app. |
 | [`examples/oauth2_redirect_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/oauth2_redirect_app.py) | OAuth2 "Authorize" flow with a real security scheme, exercising the `/docs/oauth2-redirect` endpoint `setup()` registers. |
 | [`examples/redoc_disable_search_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/redoc_disable_search_app.py) | `setup()` for Swagger UI + manual ReDoc wiring with `disable_search=True`, avoiding `worker-src 'self' blob:` entirely. |
 

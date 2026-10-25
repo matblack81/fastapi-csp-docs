@@ -8,8 +8,10 @@ injected by Starlette's Mount machinery while routing each individual request --
 still resolve every URL correctly under that prefix, exactly like FastAPI's own built-in docs
 would.
 
-For the other way an ASGI app learns its root_path -- FastAPI(root_path=...), typically set
-when running behind a reverse proxy that strips a path prefix -- see root_path_app.py.
+The other way an ASGI app learns its root_path is the server's --root-path, set when running
+behind a reverse proxy that strips a path prefix: see
+https://fastapi.tiangolo.com/advanced/behind-a-proxy/. It needs a real proxy in front to be
+browsable, so it has no example here.
 
 Run:
 
