@@ -4,6 +4,7 @@
 
 ### Docs
 
+* 🔥 Remove root_path_app example that relies on deprecated FastAPI(root_path=...). PR [#62](https://github.com/matblack81/fastapi-csp-docs/pull/62) by [@matblack81](https://github.com/matblack81).
 * 🔧 Replace old GitHub username in release notes links. PR [#61](https://github.com/matblack81/fastapi-csp-docs/pull/61) by [@matblack81](https://github.com/matblack81).
 
 ## 1.0.4 (2026-10-16)
