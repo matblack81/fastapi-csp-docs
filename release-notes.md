@@ -9,6 +9,7 @@
 
 ### Internal
 
+* ⬆ Bump certifi from 2026.6.17 to 2026.10.19. PR [#65](https://github.com/matblack81/fastapi-csp-docs/pull/65) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Add a weekly CI run against FastAPI master. PR [#64](https://github.com/matblack81/fastapi-csp-docs/pull/64) by [@matblack81](https://github.com/matblack81).
 * 👷 Test the latest FastAPI release in CI instead of the locked version. PR [#63](https://github.com/matblack81/fastapi-csp-docs/pull/63) by [@matblack81](https://github.com/matblack81).
 
