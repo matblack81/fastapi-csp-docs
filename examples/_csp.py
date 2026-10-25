@@ -1,7 +1,7 @@
 """
 Shared CSP for the "assisted" examples (fastapi_csp_docs.setup() + CDN-hosted Swagger UI /
 ReDoc bundles). Not a runnable example on its own -- see assisted_app.py,
-mounted_subapp_app.py, oauth2_redirect_app.py, root_path_app.py, which all load the exact
+mounted_subapp_app.py, oauth2_redirect_app.py, which all load the exact
 same CDN assets via fastapi_csp_docs.setup()'s defaults and so need the exact same CSP.
 
 self_hosted_app.py is deliberately NOT built on this: it self-hosts every asset instead of

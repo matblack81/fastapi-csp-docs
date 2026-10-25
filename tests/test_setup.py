@@ -169,6 +169,26 @@ def test_setup_root_path_is_reflected_in_mounted_sub_app():
     assert "/api/redoc/redoc.css" in redoc_html
 
 
+def test_setup_root_path_set_by_server_is_reflected():
+    # TestClient(root_path=...) stands in for the server's --root-path behind a proxy
+    # that strips the prefix: requests arrive without it, generated URLs carry it.
+    app = FastAPI(docs_url=None, redoc_url=None)
+    fastapi_csp_docs.setup(app)
+
+    client = TestClient(app, root_path="/api")
+    assert "/api/docs/swagger-initializer.js" in client.get("/docs").text
+
+    js = client.get("/docs/swagger-initializer.js").text
+    assert "/api/openapi.json" in js
+    assert "/api/docs/oauth2-redirect" in js
+
+    assert "/api/docs/oauth2-redirect.js" in client.get("/docs/oauth2-redirect").text
+
+    redoc_html = client.get("/redoc").text
+    assert "/api/openapi.json" in redoc_html
+    assert "/api/redoc/redoc.css" in redoc_html
+
+
 async def test_setup_redoc_css_response_is_safe_to_reuse_across_concurrent_requests():
     # _setup_redoc() builds redoc_css_response once and returns that same Response
     # instance for every request; verify concurrent requests all still get the
