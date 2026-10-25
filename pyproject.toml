@@ -123,6 +123,7 @@ keep-runtime-typing = true
 
 [tool.typos.default.extend-identifiers]
 alls = "alls"
+certifi = "certifi"
 
 [tool.typos.files]
 extend-exclude = [
