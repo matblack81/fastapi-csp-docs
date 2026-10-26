@@ -9,6 +9,7 @@
 
 ### Internal
 
+* 👷 Run the FastAPI master workflow daily. PR [#67](https://github.com/matblack81/fastapi-csp-docs/pull/67) by [@matblack81](https://github.com/matblack81).
 * ⬆ Bump certifi to 2026.10.23 and allow its name in typos. PR [#66](https://github.com/matblack81/fastapi-csp-docs/pull/66) by [@matblack81](https://github.com/matblack81).
 * ⬆ Bump certifi from 2026.6.17 to 2026.10.19. PR [#65](https://github.com/matblack81/fastapi-csp-docs/pull/65) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Add a weekly CI run against FastAPI master. PR [#64](https://github.com/matblack81/fastapi-csp-docs/pull/64) by [@matblack81](https://github.com/matblack81).
