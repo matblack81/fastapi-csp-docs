@@ -47,7 +47,7 @@ jobs:
             uv.lock
 
       - name: Install Dependencies
-        run: uv sync
+        run: uv sync --no-dev --group tests
 
       # FastAPI's development branch is "master", not "main".
       - name: Install FastAPI from source
