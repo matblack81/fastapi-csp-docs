@@ -9,6 +9,7 @@
 
 ### Internal
 
+* 🔥 Remove the leftover sync-pin markers from the workflows. PR [#70](https://github.com/matblack81/fastapi-csp-docs/pull/70) by [@matblack81](https://github.com/matblack81).
 * 👷 Install only the tests dependency group in the test workflows. PR [#69](https://github.com/matblack81/fastapi-csp-docs/pull/69) by [@matblack81](https://github.com/matblack81).
 * 🔧 Split the dev dependencies into a separate tests group. PR [#68](https://github.com/matblack81/fastapi-csp-docs/pull/68) by [@matblack81](https://github.com/matblack81).
 * 👷 Run the FastAPI master workflow daily. PR [#67](https://github.com/matblack81/fastapi-csp-docs/pull/67) by [@matblack81](https://github.com/matblack81).
