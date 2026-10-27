@@ -39,24 +39,30 @@ Homepage = "https://github.com/matblack81/fastapi-csp-docs"
 Repository = "https://github.com/matblack81/fastapi-csp-docs"
 Issues = "https://github.com/matblack81/fastapi-csp-docs/issues"
 Documentation = "https://github.com/matblack81/fastapi-csp-docs#readme"
-Changelog = "https://github.com/matblack81/fastapi-csp-docs/blob/main/RELEASE_NOTES.md"
+Changelog = "https://github.com/matblack81/fastapi-csp-docs/blob/main/release-notes.md"
 
 [dependency-groups]
 dev = [
-    "httpx>=0.28.1",
-    "httpx2>=0.28.0",
+    { include-group = "tests" },
     "ruff>=0.14.0",
-    "pytest>=9.1.0",
-    "pytest-asyncio>=1.3.0",
-    "pytest-dotenv>=0.5.2",
     "mypy>=1.17.0",
-    "coverage[toml]>=7.14.3",
     "prek >=0.2.22",
     "ty>=0.0.28",
-    "typer>=0.15.0",
     "uvicorn>=0.49.0",
     "zizmor>=1.0.0",
     "pyrefly>=1.1.1",
+]
+
+# Everything the test suite imports, so CI can install it alone with --no-dev --group tests:
+# httpx2 for the TestClient (it prefers it over httpx when both are installed), typer for
+# scripts/prepare_release.py.
+tests = [
+    "httpx>=0.28.1",
+    "httpx2>=0.28.0",
+    "pytest>=9.1.0",
+    "pytest-asyncio>=1.3.0",
+    "coverage[toml]>=7.14.3",
+    "typer>=0.15.0",
 ]
 
 [tool.hatch.version]
