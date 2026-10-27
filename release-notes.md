@@ -9,6 +9,7 @@
 
 ### Internal
 
+* 👷 Install only the tests dependency group in the test workflows. PR [#69](https://github.com/matblack81/fastapi-csp-docs/pull/69) by [@matblack81](https://github.com/matblack81).
 * 🔧 Split the dev dependencies into a separate tests group. PR [#68](https://github.com/matblack81/fastapi-csp-docs/pull/68) by [@matblack81](https://github.com/matblack81).
 * 👷 Run the FastAPI master workflow daily. PR [#67](https://github.com/matblack81/fastapi-csp-docs/pull/67) by [@matblack81](https://github.com/matblack81).
 * ⬆ Bump certifi to 2026.10.23 and allow its name in typos. PR [#66](https://github.com/matblack81/fastapi-csp-docs/pull/66) by [@matblack81](https://github.com/matblack81).
