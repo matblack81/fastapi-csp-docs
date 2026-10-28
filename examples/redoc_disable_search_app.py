@@ -1,12 +1,11 @@
 """
 Manual ReDoc wiring: disabling search to avoid the Web Worker/blob: CSP entirely.
 
-setup() intentionally has no CSP-specific parameters -- it mirrors FastAPI's own
-docs_url/redoc_url surface, nothing more. Disabling ReDoc's search box (and the Web Worker it
-runs in, which otherwise needs `worker-src 'self' blob:` -- see assisted_app.py) is a ReDoc
-rendering choice, not something setup() should grow a parameter for. So: use setup() for
-Swagger UI as usual, skip it for ReDoc (redoc_url=None), and wire the ReDoc route manually
-with get_redoc_html(disable_search=True) instead.
+setup() intentionally has no CSP-specific parameters. Disabling ReDoc's search box (and the
+Web Worker it runs in, which otherwise needs `worker-src 'self' blob:` -- see
+assisted_app.py) is a ReDoc rendering choice, not something setup() should grow a parameter
+for. So: use setup() for Swagger UI as usual, skip it for ReDoc (redoc_url=None), and wire
+the ReDoc route manually with get_redoc_html(disable_search=True) instead.
 
 Run:
 

@@ -12,7 +12,11 @@ def test_docs_and_redoc_render_with_self_hosted_assets():
     assert docs.status_code == 200
     assert redoc.status_code == 200
     assert '<script src="/static/swagger-ui-bundle.js" charset="UTF-8"></script>' in docs.text
+    assert 'href="/static/swagger-ui.css"' in docs.text
+    assert 'href="/static/favicon.png"' in docs.text
     assert '<script src="/static/redoc.standalone.js">' in redoc.text
+    assert 'href="/static/fonts.css"' in redoc.text
+    assert "cdn.jsdelivr.net" not in docs.text + redoc.text
 
 
 def test_static_vendor_assets_are_served():
