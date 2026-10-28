@@ -99,6 +99,107 @@ def test_setup_respects_custom_docs_and_redoc_url():
     assert client.get("/redoc").status_code == 404
 
 
+def test_setup_uses_cdn_assets_by_default():
+    app = FastAPI(docs_url=None, redoc_url=None)
+    fastapi_csp_docs.setup(app)
+    client = TestClient(app)
+
+    docs = client.get("/docs").text
+    assert '<script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.34.0/swagger-ui-bundle.js"' in docs
+    assert 'href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.34.0/swagger-ui.css"' in docs
+    redoc = client.get("/redoc").text
+    assert '<script src="https://cdn.jsdelivr.net/npm/redoc@2.5.4/bundles/redoc.standalone.js">' in redoc
+    assert 'href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700"' in redoc
+
+
+def test_setup_uses_custom_asset_urls():
+    app = FastAPI(docs_url=None, redoc_url=None)
+    fastapi_csp_docs.setup(
+        app,
+        swagger_js_url="https://assets.example.com/swagger-ui-bundle.js",
+        swagger_css_url="https://assets.example.com/swagger-ui.css",
+        swagger_favicon_url="https://assets.example.com/swagger.png",
+        redoc_js_url="https://assets.example.com/redoc.standalone.js",
+        redoc_favicon_url="https://assets.example.com/redoc.png",
+        google_fonts_css_url="https://assets.example.com/fonts.css",
+    )
+    client = TestClient(app)
+
+    docs = client.get("/docs").text
+    assert '<script src="https://assets.example.com/swagger-ui-bundle.js" charset="UTF-8"></script>' in docs
+    assert '<link type="text/css" rel="stylesheet" href="https://assets.example.com/swagger-ui.css">' in docs
+    assert '<link rel="shortcut icon" href="https://assets.example.com/swagger.png">' in docs
+    assert "cdn.jsdelivr.net" not in docs
+
+    redoc = client.get("/redoc").text
+    assert '<script src="https://assets.example.com/redoc.standalone.js"> </script>' in redoc
+    assert '<link rel="shortcut icon" href="https://assets.example.com/redoc.png">' in redoc
+    assert '<link href="https://assets.example.com/fonts.css" rel="stylesheet">' in redoc
+    assert "cdn.jsdelivr.net" not in redoc
+    assert "fonts.googleapis.com" not in redoc
+
+
+def test_setup_without_google_fonts_omits_the_fonts_stylesheet():
+    app = FastAPI(docs_url=None, redoc_url=None)
+    fastapi_csp_docs.setup(app, with_google_fonts=False)
+    client = TestClient(app)
+
+    redoc = client.get("/redoc").text
+    assert '<script src="https://cdn.jsdelivr.net/npm/redoc@2.5.4/bundles/redoc.standalone.js">' in redoc
+    assert "fonts.googleapis.com" not in redoc
+
+
+@pytest.mark.parametrize(
+    ("asset_url", "expected"),
+    [
+        ("/static/redoc.standalone.js", "/api/static/redoc.standalone.js"),
+        ("https://assets.example.com/redoc.standalone.js", "https://assets.example.com/redoc.standalone.js"),
+        ("//assets.example.com/redoc.standalone.js", "//assets.example.com/redoc.standalone.js"),
+        ("static/redoc.standalone.js", "static/redoc.standalone.js"),
+    ],
+)
+def test_setup_prefixes_root_path_only_to_asset_paths_on_the_app(asset_url: str, expected: str):
+    app = FastAPI(docs_url=None, redoc_url=None)
+    fastapi_csp_docs.setup(app, redoc_js_url=asset_url)
+    client = TestClient(app, root_path="/api")
+
+    assert f'<script src="{expected}"> </script>' in client.get("/redoc").text
+
+
+def test_setup_asset_paths_follow_the_mount_prefix():
+    sub_app = FastAPI(docs_url=None, redoc_url=None)
+    fastapi_csp_docs.setup(
+        sub_app,
+        swagger_js_url="/static/swagger-ui-bundle.js",
+        swagger_css_url="/static/swagger-ui.css",
+        swagger_favicon_url="/static/favicon.png",
+        redoc_js_url="/static/redoc.standalone.js",
+        redoc_favicon_url="/static/favicon.png",
+        google_fonts_css_url="/static/fonts.css",
+    )
+    parent_app = FastAPI()
+    parent_app.mount("/api", sub_app)
+    client = TestClient(parent_app)
+
+    docs = client.get("/api/docs").text
+    assert '<script src="/api/static/swagger-ui-bundle.js" charset="UTF-8"></script>' in docs
+    assert 'href="/api/static/swagger-ui.css"' in docs
+    assert 'href="/api/static/favicon.png"' in docs
+
+    redoc = client.get("/api/redoc").text
+    assert '<script src="/api/static/redoc.standalone.js"> </script>' in redoc
+    assert 'href="/api/static/favicon.png"' in redoc
+    assert 'href="/api/static/fonts.css"' in redoc
+
+
+def test_setup_asset_paths_are_unchanged_without_root_path():
+    app = FastAPI(docs_url=None, redoc_url=None)
+    fastapi_csp_docs.setup(app, swagger_js_url="/static/swagger-ui-bundle.js")
+    client = TestClient(app)
+
+    assert '<script src="/static/swagger-ui-bundle.js" charset="UTF-8"></script>' in client.get("/docs").text
+
+
 def test_setup_docs_url_none_skips_swagger_ui_only():
     app = FastAPI(docs_url=None, redoc_url=None)
     fastapi_csp_docs.setup(app, docs_url=None)

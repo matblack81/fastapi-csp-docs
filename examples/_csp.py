@@ -14,11 +14,10 @@ from collections.abc import Awaitable, Callable
 from fastapi import Request
 from fastapi.responses import Response
 
-# These must match the defaults fastapi_csp_docs.setup() actually loads internally --
-# get_swagger_ui_html()/get_redoc_html() in fastapi_csp_docs/docs.py. setup() doesn't accept
-# custom asset URLs (see README "assisted mode" vs "manual mode"), so pinning the CSP to
-# these exact files (rather than the whole cdn.jsdelivr.net origin, which hosts arbitrary npm
-# packages) requires keeping this list in sync with those defaults by hand.
+# These must match the default asset URLs of fastapi_csp_docs.setup(), which the assisted
+# examples don't override. Pinning the CSP to these exact files (rather than the whole
+# cdn.jsdelivr.net origin, which hosts arbitrary npm packages) requires keeping this list in
+# sync with those defaults by hand.
 SWAGGER_JS_URL = "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.34.0/swagger-ui-bundle.js"
 SWAGGER_CSS_URL = "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.34.0/swagger-ui.css"
 REDOC_JS_URL = "https://cdn.jsdelivr.net/npm/redoc@2.5.4/bundles/redoc.standalone.js"
@@ -56,8 +55,8 @@ CSP = (
     "default-src 'self'; "
     f"script-src 'self' {SWAGGER_JS_URL} {REDOC_JS_URL}; "
     f"style-src 'self' {SWAGGER_CSS_URL} {GOOGLE_FONTS_CSS_URL} {' '.join(REDOC_STYLE_HASHES)}; "
-    # get_redoc_html() loads Google Fonts by default (with_google_fonts=True); see
-    # self_hosted_app.py for an example that passes with_google_fonts=False instead of
+    # setup() loads Google Fonts by default (with_google_fonts=True); see self_hosted_app.py
+    # for an example that serves the fonts itself via google_fonts_css_url instead of
     # whitelisting this origin.
     f"font-src 'self' {GOOGLE_FONTS_STATIC_PREFIX}; "
     # data: is for small SVG icons the Swagger UI bundle inlines as data URIs (e.g. the
@@ -70,7 +69,7 @@ CSP = (
     # file to point a real URL at instead). Worker instantiation is governed by worker-src,
     # not script-src -- without it explicitly set, browsers fall back to script-src, which
     # never matches a blob: URL. setup() has no knob to disable ReDoc's search (and so avoid
-    # the worker) -- it stays a plain docs_url/redoc_url toggle, like FastAPI's own. See
+    # the worker): it has no CSP-specific parameters. See
     # redoc_disable_search_app.py for the alternative: skip setup() for the ReDoc route and
     # call get_redoc_html(disable_search=True) manually instead, which needs no blob: here.
     "worker-src 'self' blob:"

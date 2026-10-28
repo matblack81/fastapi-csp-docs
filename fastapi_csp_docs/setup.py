@@ -3,6 +3,11 @@ from fastapi.requests import Request
 from fastapi.responses import HTMLResponse, Response
 
 from fastapi_csp_docs.docs import (
+    _FAVICON_URL,
+    _GOOGLE_FONTS_CSS_URL,
+    _REDOC_JS_URL,
+    _SWAGGER_CSS_URL,
+    _SWAGGER_JS_URL,
     get_redoc_css,
     get_redoc_html,
     get_swagger_ui_html,
@@ -17,6 +22,13 @@ def setup(
     *,
     docs_url: str | None = "/docs",
     redoc_url: str | None = "/redoc",
+    swagger_js_url: str = _SWAGGER_JS_URL,
+    swagger_css_url: str = _SWAGGER_CSS_URL,
+    swagger_favicon_url: str = _FAVICON_URL,
+    redoc_js_url: str = _REDOC_JS_URL,
+    redoc_favicon_url: str = _FAVICON_URL,
+    with_google_fonts: bool = True,
+    google_fonts_css_url: str = _GOOGLE_FONTS_CSS_URL,
 ) -> None:
     """
     Wire CSP-safe Swagger UI and ReDoc routes onto a FastAPI app.
@@ -36,9 +48,24 @@ def setup(
     Silently skips wiring a route if `app.openapi_url` is `None` — there's no OpenAPI
     schema for Swagger UI/ReDoc to render in that case.
 
+    An asset URL that is a path on the app (it starts with a single `/`, like
+    `"/static/swagger-ui-bundle.js"`) gets the request's ASGI `root_path` in front of it, the
+    same way the docs routes do, so self-hosted assets keep working when the app is mounted
+    under a prefix. Absolute (`https://...`), protocol-relative (`//...`) and relative URLs
+    are used as given.
+
     :param app: the FastAPI app to wire the docs routes onto.
     :param docs_url: path to serve Swagger UI at, or None to skip it.
     :param redoc_url: path to serve ReDoc at, or None to skip it.
+    :param swagger_js_url: URL of the Swagger UI JavaScript bundle.
+    :param swagger_css_url: URL of the Swagger UI CSS.
+    :param swagger_favicon_url: URL of the Swagger UI page's favicon.
+    :param redoc_js_url: URL of the ReDoc JavaScript bundle.
+    :param redoc_favicon_url: URL of the ReDoc page's favicon.
+    :param with_google_fonts: whether the ReDoc page loads the stylesheet at
+        `google_fonts_css_url`.
+    :param google_fonts_css_url: URL of the Montserrat/Roboto stylesheet for ReDoc, Google
+        Fonts by default.
     :raises RuntimeError: if `app.docs_url` or `app.redoc_url` is still set.
     """
     if docs_url:
@@ -49,7 +76,13 @@ def setup(
                 "FastAPI app with docs_url=None to disable it first, e.g. FastAPI(docs_url=None)."
             )
         if app.openapi_url:
-            _setup_swagger_ui(app, docs_url)
+            _setup_swagger_ui(
+                app,
+                docs_url,
+                swagger_js_url=swagger_js_url,
+                swagger_css_url=swagger_css_url,
+                swagger_favicon_url=swagger_favicon_url,
+            )
     if redoc_url:
         if app.redoc_url:
             raise RuntimeError(
@@ -58,10 +91,30 @@ def setup(
                 "FastAPI app with redoc_url=None to disable it first, e.g. FastAPI(redoc_url=None)."
             )
         if app.openapi_url:
-            _setup_redoc(app, redoc_url)
+            _setup_redoc(
+                app,
+                redoc_url,
+                redoc_js_url=redoc_js_url,
+                redoc_favicon_url=redoc_favicon_url,
+                with_google_fonts=with_google_fonts,
+                google_fonts_css_url=google_fonts_css_url,
+            )
 
 
-def _setup_swagger_ui(app: FastAPI, docs_url: str) -> None:
+def _with_root_path(root_path: str, url: str) -> str:
+    if url.startswith("/") and not url.startswith("//"):
+        return root_path + url
+    return url
+
+
+def _setup_swagger_ui(
+    app: FastAPI,
+    docs_url: str,
+    *,
+    swagger_js_url: str,
+    swagger_css_url: str,
+    swagger_favicon_url: str,
+) -> None:
     swagger_ui_init_script_url = f"{docs_url.rstrip('/')}/swagger-initializer.js"
 
     async def swagger_ui_init_script(req: Request) -> Response:
@@ -88,6 +141,9 @@ def _setup_swagger_ui(app: FastAPI, docs_url: str) -> None:
         init_script_url = root_path + swagger_ui_init_script_url
         return get_swagger_ui_html(
             title=f"{app.title} - Swagger UI",
+            swagger_js_url=_with_root_path(root_path, swagger_js_url),
+            swagger_css_url=_with_root_path(root_path, swagger_css_url),
+            swagger_favicon_url=_with_root_path(root_path, swagger_favicon_url),
             swagger_ui_init_script_url=init_script_url,
         )
 
@@ -125,7 +181,15 @@ def _setup_swagger_ui_oauth2_redirect(app: FastAPI, oauth2_redirect_url: str) ->
     )
 
 
-def _setup_redoc(app: FastAPI, redoc_url: str) -> None:
+def _setup_redoc(
+    app: FastAPI,
+    redoc_url: str,
+    *,
+    redoc_js_url: str,
+    redoc_favicon_url: str,
+    with_google_fonts: bool,
+    google_fonts_css_url: str,
+) -> None:
     redoc_css_url = f"{redoc_url.rstrip('/')}/redoc.css"
 
     redoc_css_response = get_redoc_css()
@@ -142,7 +206,11 @@ def _setup_redoc(app: FastAPI, redoc_url: str) -> None:
         return get_redoc_html(
             openapi_url=openapi_url,
             title=f"{app.title} - ReDoc",
+            redoc_js_url=_with_root_path(root_path, redoc_js_url),
+            redoc_favicon_url=_with_root_path(root_path, redoc_favicon_url),
+            with_google_fonts=with_google_fonts,
             redoc_css_url=css_url,
+            google_fonts_css_url=_with_root_path(root_path, google_fonts_css_url),
         )
 
     app.add_route(redoc_url, redoc_html, include_in_schema=False)

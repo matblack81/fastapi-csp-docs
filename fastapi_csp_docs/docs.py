@@ -7,6 +7,13 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.openapi.docs import swagger_ui_default_parameters
 from fastapi.responses import HTMLResponse, Response
 
+# Shared with setup(), so the pinned versions are written in one place.
+_SWAGGER_JS_URL = "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.34.0/swagger-ui-bundle.js"
+_SWAGGER_CSS_URL = "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.34.0/swagger-ui.css"
+_REDOC_JS_URL = "https://cdn.jsdelivr.net/npm/redoc@2.5.4/bundles/redoc.standalone.js"
+_FAVICON_URL = "https://fastapi.tiangolo.com/img/favicon.png"
+_GOOGLE_FONTS_CSS_URL = "https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700"
+
 
 def _html_safe_json(value: Any) -> str:
     """Serialize a value to JSON with HTML special characters escaped.
@@ -76,9 +83,9 @@ def get_swagger_ui_init_js(
 def get_swagger_ui_html(
     *,
     title: str,
-    swagger_js_url: str = "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.34.0/swagger-ui-bundle.js",
-    swagger_css_url: str = "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.34.0/swagger-ui.css",
-    swagger_favicon_url: str = "https://fastapi.tiangolo.com/img/favicon.png",
+    swagger_js_url: str = _SWAGGER_JS_URL,
+    swagger_css_url: str = _SWAGGER_CSS_URL,
+    swagger_favicon_url: str = _FAVICON_URL,
     swagger_ui_init_script_url: str = "/docs/swagger-initializer.js",
 ) -> HTMLResponse:
     """
@@ -123,11 +130,11 @@ def get_redoc_html(
     *,
     openapi_url: str,
     title: str,
-    redoc_js_url: str = "https://cdn.jsdelivr.net/npm/redoc@2.5.4/bundles/redoc.standalone.js",
-    redoc_favicon_url: str = "https://fastapi.tiangolo.com/img/favicon.png",
+    redoc_js_url: str = _REDOC_JS_URL,
+    redoc_favicon_url: str = _FAVICON_URL,
     with_google_fonts: bool = True,
     redoc_css_url: str = "/redoc/redoc.css",
-    google_fonts_css_url: str = "https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700",
+    google_fonts_css_url: str = _GOOGLE_FONTS_CSS_URL,
     disable_search: bool = False,
 ) -> HTMLResponse:
     """
