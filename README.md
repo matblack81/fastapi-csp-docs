@@ -59,6 +59,8 @@ fastapi_csp_docs.setup(app)
 
 `docs_url`/`redoc_url` must already be `None` on the app for whichever mode you're enabling. `setup()` raises `RuntimeError` otherwise, so FastAPI's built-in inline-script docs can't silently shadow the routes it registers.
 
+The default asset URLs pin exact releases: `swagger-ui-dist@5.34.0` and `redoc@2.5.4` on jsdelivr. FastAPI's own defaults use the floating `@5`/`@2` tags instead. With a pinned version, the files the browser loads only change when you upgrade `fastapi-csp-docs`, so the CSP entries that depend on them (full file URLs, as listed in [`examples/_csp.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/_csp.py), and the ReDoc style hashes) keep matching until then. When you upgrade, check the release notes for a version bump and update those entries.
+
 Full runnable version: [`examples/assisted_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/assisted_app.py).
 
 ### Fully self-hosted mode (no CDN at all)

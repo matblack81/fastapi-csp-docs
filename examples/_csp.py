@@ -19,9 +19,9 @@ from fastapi.responses import Response
 # custom asset URLs (see README "assisted mode" vs "manual mode"), so pinning the CSP to
 # these exact files (rather than the whole cdn.jsdelivr.net origin, which hosts arbitrary npm
 # packages) requires keeping this list in sync with those defaults by hand.
-SWAGGER_JS_URL = "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js"
-SWAGGER_CSS_URL = "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css"
-REDOC_JS_URL = "https://cdn.jsdelivr.net/npm/redoc@2/bundles/redoc.standalone.js"
+SWAGGER_JS_URL = "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.34.0/swagger-ui-bundle.js"
+SWAGGER_CSS_URL = "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.34.0/swagger-ui.css"
+REDOC_JS_URL = "https://cdn.jsdelivr.net/npm/redoc@2.5.4/bundles/redoc.standalone.js"
 FAVICON_URL = "https://fastapi.tiangolo.com/img/favicon.png"
 # swagger-ui.css and redoc.standalone.js each end with a "/*# sourceMappingURL=... */" comment
 # pointing at a sibling .map file (swagger-ui-bundle.js has none). DevTools only fetches these

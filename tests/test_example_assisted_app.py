@@ -20,8 +20,8 @@ def test_csp_header_whitelists_exact_cdn_asset_urls():
 
     csp = response.headers["content-security-policy"]
     assert "'unsafe-inline'" not in csp
-    assert "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js" in csp
-    assert "https://cdn.jsdelivr.net/npm/redoc@2/bundles/redoc.standalone.js" in csp
+    assert "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.34.0/swagger-ui-bundle.js" in csp
+    assert "https://cdn.jsdelivr.net/npm/redoc@2.5.4/bundles/redoc.standalone.js" in csp
 
 
 def test_items_route_still_works_alongside_docs():
