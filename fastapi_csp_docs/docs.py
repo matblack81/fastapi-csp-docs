@@ -76,8 +76,8 @@ def get_swagger_ui_init_js(
 def get_swagger_ui_html(
     *,
     title: str,
-    swagger_js_url: str = "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js",
-    swagger_css_url: str = "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css",
+    swagger_js_url: str = "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.34.0/swagger-ui-bundle.js",
+    swagger_css_url: str = "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.34.0/swagger-ui.css",
     swagger_favicon_url: str = "https://fastapi.tiangolo.com/img/favicon.png",
     swagger_ui_init_script_url: str = "/docs/swagger-initializer.js",
 ) -> HTMLResponse:
@@ -123,7 +123,7 @@ def get_redoc_html(
     *,
     openapi_url: str,
     title: str,
-    redoc_js_url: str = "https://cdn.jsdelivr.net/npm/redoc@2/bundles/redoc.standalone.js",
+    redoc_js_url: str = "https://cdn.jsdelivr.net/npm/redoc@2.5.4/bundles/redoc.standalone.js",
     redoc_favicon_url: str = "https://fastapi.tiangolo.com/img/favicon.png",
     with_google_fonts: bool = True,
     redoc_css_url: str = "/redoc/redoc.css",
@@ -231,7 +231,7 @@ def get_swagger_ui_oauth2_redirect_js() -> Response:
 
     You normally don't need to use or change this.
     """
-    # minified, copied from https://github.com/swagger-api/swagger-ui/blob/v5.32.8/dist/oauth2-redirect.js
+    # minified, copied from https://github.com/swagger-api/swagger-ui/blob/v5.34.0/dist/oauth2-redirect.js
     js = (
         '"use strict";function run(){var e,r,t,a=window.opener.swaggerUIRedirectOauth2,'
         "o=a.state,n=a.redirectUrl;if((t=(r=/code|token|error/.test(window.location.hash)?"
