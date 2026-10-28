@@ -2,6 +2,10 @@
 
 ## Latest Changes
 
+### Breaking Changes
+
+* 📌 Load Swagger UI 5.34.0 and ReDoc 2.5.4 instead of the floating @5 and @2 tags. PR [#72](https://github.com/matblack81/fastapi-csp-docs/pull/72) by [@matblack81](https://github.com/matblack81).
+
 ### Docs
 
 * 🔥 Remove root_path_app example that relies on deprecated FastAPI(root_path=...). PR [#62](https://github.com/matblack81/fastapi-csp-docs/pull/62) by [@matblack81](https://github.com/matblack81).
