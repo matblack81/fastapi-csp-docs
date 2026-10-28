@@ -14,6 +14,7 @@
 
 ### Internal
 
+* ⬆ Bump fastapi from 0.141.1 to 0.162.0. PR [#74](https://github.com/matblack81/fastapi-csp-docs/pull/74) by [@matblack81](https://github.com/matblack81).
 * ✅ Snapshot the pages every docs generator emits. PR [#71](https://github.com/matblack81/fastapi-csp-docs/pull/71) by [@matblack81](https://github.com/matblack81).
 * 🔥 Remove the leftover sync-pin markers from the workflows. PR [#70](https://github.com/matblack81/fastapi-csp-docs/pull/70) by [@matblack81](https://github.com/matblack81).
 * 👷 Install only the tests dependency group in the test workflows. PR [#69](https://github.com/matblack81/fastapi-csp-docs/pull/69) by [@matblack81](https://github.com/matblack81).
