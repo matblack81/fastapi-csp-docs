@@ -101,6 +101,8 @@ Beyond the inline `<script>`/`<style>` tags this package removes from FastAPI's 
 
 **Logo image (`img-src`)**: ReDoc's "API docs by Redocly" attribution logo hardcodes an absolute `cdn.redoc.ly` URL, with no supported way to override it or point it at a local file. There's no CSP hash mechanism for images (hash-source only applies to `script-src`/`style-src`), so the only way to allow it is whitelisting that origin in `img-src`; both examples do this, since it's a small, non-code image request and doesn't weaken `script-src`/`style-src` at all. It's the one external origin left in `self_hosted_app.py`'s otherwise fully self-hosted CSP.
 
+**Scoping these entries to the ReDoc page**: all three are needed only by the ReDoc page, and the browser enforces the CSP sent with that HTML response, not the one sent with the scripts and stylesheets it loads. An app that already sets its CSP in a middleware can add them only to the response for `redoc_url` (`/redoc` by default) and keep every other route on the stricter policy. The examples send one policy with every response to stay short.
+
 ## Reference
 
 ### `setup(app, *, docs_url="/docs", redoc_url="/redoc")`
