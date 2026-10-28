@@ -6,6 +6,10 @@
 
 * 📌 Load Swagger UI 5.34.0 and ReDoc 2.5.4 instead of the floating @5 and @2 tags. PR [#72](https://github.com/matblack81/fastapi-csp-docs/pull/72) by [@matblack81](https://github.com/matblack81).
 
+### Features
+
+* ✨ Let setup() load Swagger UI and ReDoc from custom asset URLs. PR [#75](https://github.com/matblack81/fastapi-csp-docs/pull/75) by [@matblack81](https://github.com/matblack81).
+
 ### Docs
 
 * 📝 Add a README note on keeping the stricter CSP outside the ReDoc page. PR [#73](https://github.com/matblack81/fastapi-csp-docs/pull/73) by [@matblack81](https://github.com/matblack81).
