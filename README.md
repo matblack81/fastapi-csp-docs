@@ -122,6 +122,10 @@ Beyond the inline `<script>`/`<style>` tags this package removes from FastAPI's 
 
 **Scoping these entries to the ReDoc page**: all three are needed only by the ReDoc page, and the browser enforces the CSP sent with that HTML response, not the one sent with the scripts and stylesheets it loads. An app that already sets its CSP in a middleware can add them only to the response for `redoc_url` (`/redoc` by default) and keep every other route on the stricter policy. The examples send one policy with every response to stay short.
 
+## Swagger UI and Content-Security-Policy
+
+Swagger UI needs no CSP entries beyond its asset URLs: the inline styles it sets go through the CSSOM (`element.style`), which `style-src` doesn't govern. The exception is the Markdown in your OpenAPI `description` fields, which Swagger UI renders as HTML. A table with aligned columns (`| :---: |`) becomes `<th style="text-align:center">`, and raw HTML can carry its own `style` attributes; under a `style-src` without `'unsafe-inline'` the browser drops these attributes and logs a `style-src-attr` violation every time the page re-renders. The text still shows, without that alignment or styling. To avoid the violations, remove the alignment markers and `style` attributes from your descriptions. To keep them, add the hashes the browser reports to `style-src` together with `'unsafe-hashes'`, which hashes of style attributes require.
+
 ## Reference
 
 ### `setup(app, *, docs_url="/docs", redoc_url="/redoc", ...)`
