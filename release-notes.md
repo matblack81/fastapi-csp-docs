@@ -12,6 +12,7 @@
 
 ### Docs
 
+* 📝 Document the CSP violations caused by Markdown in Swagger UI descriptions. PR [#77](https://github.com/matblack81/fastapi-csp-docs/pull/77) by [@matblack81](https://github.com/matblack81).
 * 📝 Document setup()'s asset URL parameters and the manual wiring alternative. PR [#76](https://github.com/matblack81/fastapi-csp-docs/pull/76) by [@matblack81](https://github.com/matblack81).
 * 📝 Add a README note on keeping the stricter CSP outside the ReDoc page. PR [#73](https://github.com/matblack81/fastapi-csp-docs/pull/73) by [@matblack81](https://github.com/matblack81).
 * 🔥 Remove root_path_app example that relies on deprecated FastAPI(root_path=...). PR [#62](https://github.com/matblack81/fastapi-csp-docs/pull/62) by [@matblack81](https://github.com/matblack81).
