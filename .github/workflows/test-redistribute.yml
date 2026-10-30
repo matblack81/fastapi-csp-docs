@@ -27,6 +27,8 @@ jobs:
           filters: |
             src:
               - .github/workflows/test-redistribute.yml
+              - docs/**
+              - docs_src/**
               - fastapi_csp_docs/**
               - tests/**
               - .python-version

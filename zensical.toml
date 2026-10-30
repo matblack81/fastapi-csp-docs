@@ -9,7 +9,25 @@ edit_uri = "edit/main/docs/"
 
 nav = [
   { "Home" = "index.md" },
+  { "Quick start" = "quickstart.md" },
+  { "Guides" = [
+    { "Fully self-hosted docs" = "guides/self-hosted.md" },
+    { "Writing the CSP" = "guides/csp.md" },
+    { "ReDoc and CSP" = "guides/redoc-csp.md" },
+    { "Swagger UI and CSP" = "guides/swagger-ui-csp.md" },
+  ] },
+  { "How it works" = "how-it-works.md" },
+  { "Advanced options" = [
+    "advanced/index.md",
+    { "Paths and disabling a page" = "advanced/paths.md" },
+    { "Swagger UI parameters and OAuth2" = "advanced/swagger-ui-parameters-and-oauth2.md" },
+    { "Fonts" = "advanced/fonts.md" },
+    { "Reverse proxy and sub-apps" = "advanced/reverse-proxy-and-sub-apps.md" },
+    { "Manual wiring" = "advanced/manual-wiring.md" },
+    { "Pinned asset versions" = "advanced/pinned-versions.md" },
+  ] },
   { "Reference" = "reference.md" },
+  { "Examples" = "examples.md" },
   { "Release notes" = "changelog.md" },
 ]
 
