@@ -12,6 +12,7 @@
 
 ### Docs
 
+* 📝 Add the documentation site skeleton with a strict build in CI. PR [#78](https://github.com/matblack81/fastapi-csp-docs/pull/78) by [@matblack81](https://github.com/matblack81).
 * 📝 Document the CSP violations caused by Markdown in Swagger UI descriptions. PR [#77](https://github.com/matblack81/fastapi-csp-docs/pull/77) by [@matblack81](https://github.com/matblack81).
 * 📝 Document setup()'s asset URL parameters and the manual wiring alternative. PR [#76](https://github.com/matblack81/fastapi-csp-docs/pull/76) by [@matblack81](https://github.com/matblack81).
 * 📝 Add a README note on keeping the stricter CSP outside the ReDoc page. PR [#73](https://github.com/matblack81/fastapi-csp-docs/pull/73) by [@matblack81](https://github.com/matblack81).
