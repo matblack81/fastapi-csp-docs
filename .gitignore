@@ -9,6 +9,7 @@ __pycache__/
 # Build / dist
 build/
 dist/
+site/
 
 # Coverage
 .coverage

@@ -1,0 +1,103 @@
+[project]
+site_name = "FastAPI CSP Docs"
+site_description = "CSP-safe replacements for FastAPI's built-in /docs, /redoc, and OAuth2 redirect endpoints, with no inline script or style."
+site_url = "https://fastapi-csp-docs.matblack81.com/"
+repo_url = "https://github.com/matblack81/fastapi-csp-docs"
+repo_name = "matblack81/fastapi-csp-docs"
+copyright = "Copyright &copy; 2026 Matteo Nieddu &middot; <a href=\"https://github.com/matblack81/fastapi-csp-docs/blob/main/LICENSE\">MIT License</a>"
+edit_uri = "edit/main/docs/"
+
+nav = [
+  { "Home" = "index.md" },
+  { "Reference" = "reference.md" },
+  { "Release notes" = "changelog.md" },
+]
+
+[project.theme]
+variant = "classic"
+language = "en"
+features = [
+  "content.code.annotate",
+  "content.code.copy",
+  "content.footnote.tooltips",
+  "content.tabs.link",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.instant.prefetch",
+  "navigation.instant.progress",
+  "navigation.sections",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+  "search.suggest",
+  "toc.follow",
+]
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+toggle.icon = "material/brightness-auto"
+toggle.name = "Switch to light mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "teal"
+accent = "amber"
+toggle.icon = "material/brightness-7"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "teal"
+accent = "amber"
+toggle.icon = "material/brightness-4"
+toggle.name = "Switch to system preference"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/matblack81/fastapi-csp-docs"
+name = "Source code on GitHub"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/python"
+link = "https://pypi.org/project/fastapi-csp-docs/"
+name = "fastapi-csp-docs on PyPI"
+
+[[project.extra.social]]
+icon = "fontawesome/solid/bug"
+link = "https://github.com/matblack81/fastapi-csp-docs/issues"
+name = "Report an issue"
+
+# The docstrings are reST (`:param name:`), so the reference page parses them as Sphinx.
+[project.plugins.mkdocstrings.handlers.python.options]
+docstring_style = "sphinx"
+docstring_section_style = "spacy"
+show_root_heading = true
+show_root_full_path = false
+show_if_no_docstring = true
+members_order = "source"
+separate_signature = true
+signature_crossrefs = true
+show_symbol_type_heading = true
+show_symbol_type_toc = true
+
+[project.markdown_extensions]
+abbr = {}
+admonition = {}
+attr_list = {}
+footnotes = {}
+md_in_html = {}
+tables = {}
+toc.permalink = true
+pymdownx.details = {}
+pymdownx.highlight.anchor_linenums = true
+pymdownx.highlight.line_spans = "__span"
+pymdownx.highlight.pygments_lang_class = true
+pymdownx.inlinehilite = {}
+# Pages include whole files (docs_src/, the root release-notes.md) with `--8<--`; a missing one fails the build.
+pymdownx.snippets.base_path = ["."]
+pymdownx.snippets.check_paths = true
+pymdownx.superfences = {}
+pymdownx.tabbed.alternate_style = true
