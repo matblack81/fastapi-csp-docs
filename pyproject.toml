@@ -44,6 +44,7 @@ Changelog = "https://github.com/matblack81/fastapi-csp-docs/blob/main/release-no
 [dependency-groups]
 dev = [
     { include-group = "tests" },
+    { include-group = "docs" },
     "ruff>=0.14.0",
     "mypy>=1.17.0",
     "prek >=0.2.22",
@@ -64,6 +65,14 @@ tests = [
     "coverage[toml]>=7.14.3",
     "inline-snapshot >=0.21.1",
     "typer>=0.15.0",
+]
+
+# The docs site, so CI can build it alone with --no-dev --group docs: mkdocstrings uses ruff to
+# wrap the signatures on the reference page.
+docs = [
+    "zensical>=0.0.67",
+    "mkdocstrings[python]>=1.0.6",
+    "ruff>=0.14.0",
 ]
 
 [tool.hatch.version]
@@ -120,6 +129,13 @@ ignore = [
 
 [tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["F401"]
+# The docs pages show part of these files: the imports sit inside the shown part, after the
+# code that sets the example up (E402), in the compact style the pages use (I001).
+"docs_src/**" = ["E402", "I001"]
+
+[tool.ruff.format]
+# Formatted by hand: the pages show these files, and `ruff format` would undo their layout.
+exclude = ["docs_src/**"]
 
 [tool.ruff.lint.isort]
 lines-between-types = 1
