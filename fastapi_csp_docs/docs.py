@@ -154,7 +154,8 @@ def get_redoc_html(
     :param google_fonts_css_url: URL of the Google Fonts stylesheet, used only when
         `with_google_fonts` is True.
     :param disable_search: whether to disable ReDoc's client-side search box (and the Web
-        Worker it runs in) — see the README section on `worker-src`.
+        Worker it runs in), see
+        [ReDoc and CSP](https://fastapi-csp-docs.matblack81.com/guides/redoc-csp/#web-worker).
     """
     page = f"""
     <!DOCTYPE html>

@@ -38,7 +38,7 @@ dependencies = [
 Homepage = "https://github.com/matblack81/fastapi-csp-docs"
 Repository = "https://github.com/matblack81/fastapi-csp-docs"
 Issues = "https://github.com/matblack81/fastapi-csp-docs/issues"
-Documentation = "https://github.com/matblack81/fastapi-csp-docs#readme"
+Documentation = "https://fastapi-csp-docs.matblack81.com/"
 Changelog = "https://github.com/matblack81/fastapi-csp-docs/blob/main/release-notes.md"
 
 [dependency-groups]
