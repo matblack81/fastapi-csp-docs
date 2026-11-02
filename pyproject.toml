@@ -54,9 +54,11 @@ dev = [
     { include-group = "tests" },
     { include-group = "docs" },
     { include-group = "screenshots" },
+    "ruff>=0.14.0",
     "mypy>=1.17.0",
     "prek >=0.2.22",
     "ty>=0.0.28",
+    "uvicorn>=0.49.0",
     "zizmor>=1.0.0",
     "pyrefly>=1.1.1",
 ]
