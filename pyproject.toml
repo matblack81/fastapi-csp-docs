@@ -13,12 +13,20 @@ requires-python = ">=3.10"
 authors = [
     { name = "Matteo Nieddu", email = "mat81black@gmail.com" }
 ]
+keywords = [
+    "fastapi",
+    "csp",
+    "content-security-policy",
+    "swagger-ui",
+    "redoc",
+    "openapi",
+    "security-headers",
+]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Web Environment",
     "Framework :: FastAPI",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.10",
@@ -35,11 +43,11 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/matblack81/fastapi-csp-docs"
+Homepage = "https://fastapi-csp-docs.matblack81.com/"
 Repository = "https://github.com/matblack81/fastapi-csp-docs"
 Issues = "https://github.com/matblack81/fastapi-csp-docs/issues"
 Documentation = "https://fastapi-csp-docs.matblack81.com/"
-Changelog = "https://github.com/matblack81/fastapi-csp-docs/blob/main/release-notes.md"
+Changelog = "https://fastapi-csp-docs.matblack81.com/changelog/"
 
 [dependency-groups]
 dev = [
