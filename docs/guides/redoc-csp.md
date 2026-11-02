@@ -48,3 +48,5 @@ The browser enforces the CSP sent with the HTML response, not the one sent with 
 ```python
 --8<-- "docs_src/guides/redoc_scoped_csp.py:snippet"
 ```
+
+`request.url.path` includes the prefix of a mount or `--root-path`, so the middleware matches the end of the path. Every directive is in [Writing the CSP](csp.md).

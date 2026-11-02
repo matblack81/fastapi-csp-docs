@@ -21,3 +21,5 @@ The release notes list every version bump. When one changes these versions, upda
 To load another release, pass its URL as `swagger_js_url`, `swagger_css_url` or `redoc_js_url`.
 
 The ReDoc hashes in this documentation apply to `redoc@2.5.4` only: capture them again for any other build, as [Inline styles](../guides/redoc-csp.md#inline-styles) describes.
+
+[Fully self-hosted docs](../guides/self-hosted.md) replaces the CDN URLs with your own files.

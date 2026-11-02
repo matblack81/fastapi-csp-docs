@@ -25,3 +25,5 @@ The redirect routes follow `swagger_ui_oauth2_redirect_url`, a FastAPI app setti
 ## `None` leaves the built-in page alone
 
 `setup()` only checks the pages it sets up. With `FastAPI(docs_url=None)` and `setup(app, redoc_url=None)`, `FastAPI` keeps its default `redoc_url`, so `/redoc` is FastAPI's built-in page with its inline `<style>`, and the browser blocks it under your CSP. Set both to `None` on the app to serve neither.
+
+Every `setup()` parameter is in the [reference](../reference.md).

@@ -4,7 +4,7 @@ description: The CSP entries Swagger UI needs, and the style-src-attr violations
 
 # Swagger UI and CSP
 
-Swagger UI needs no CSP entries beyond its asset URLs, listed in [Writing the CSP](csp.md). It sets its inline styles through the CSSOM (`element.style`), which `style-src` doesn't govern.
+Swagger UI needs no CSP entries beyond its asset URLs and `data:` in `img-src`, listed in [Writing the CSP](csp.md). It sets its inline styles through the CSSOM (`element.style`), which `style-src` doesn't govern.
 
 ## Markdown in descriptions
 
@@ -14,3 +14,5 @@ Swagger UI renders the Markdown in your OpenAPI `description` fields as HTML. A 
 |---|---|
 | Avoid the violations | Remove the alignment markers and `style` attributes from your descriptions |
 | Keep the styling | Add the hashes the browser reports to `style-src`, together with `'unsafe-hashes'`, which hashes of style attributes require |
+
+[ReDoc and CSP](redoc-csp.md) covers the entries ReDoc's runtime needs.

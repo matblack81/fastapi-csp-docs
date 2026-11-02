@@ -29,7 +29,7 @@ REDOC_CSP = (
 @app.middleware("http")
 async def add_csp_header(request: Request, call_next) -> Response:
     response = await call_next(request)
-    policy = REDOC_CSP if request.url.path == "/redoc" else CSP
+    policy = REDOC_CSP if request.url.path.endswith("/redoc") else CSP
     response.headers["Content-Security-Policy"] = policy
     return response
 # --8<-- [end:snippet]
