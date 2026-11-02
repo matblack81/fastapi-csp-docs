@@ -94,7 +94,7 @@ The directives of this policy, self-hosted assets and the other options are in t
 
 ## Release Notes
 
-[RELEASE_NOTES](https://github.com/matblack81/fastapi-csp-docs/blob/main/release-notes.md)
+[Release notes](https://fastapi-csp-docs.matblack81.com/changelog/)
 
 ---
 
