@@ -12,6 +12,7 @@
 
 ### Docs
 
+* 🍱 Center the shield in the logo and the favicon. PR [#86](https://github.com/matblack81/fastapi-csp-docs/pull/86) by [@matblack81](https://github.com/matblack81).
 * 📝 Group the site navigation under Guide and show the code on the examples page. PR [#85](https://github.com/matblack81/fastapi-csp-docs/pull/85) by [@matblack81](https://github.com/matblack81).
 * 🍱 Add the logo and the screenshots to the documentation site. PR [#84](https://github.com/matblack81/fastapi-csp-docs/pull/84) by [@matblack81](https://github.com/matblack81).
 * 📝 Add the documentation site pages, with tested code examples. PR [#79](https://github.com/matblack81/fastapi-csp-docs/pull/79) by [@matblack81](https://github.com/matblack81).
