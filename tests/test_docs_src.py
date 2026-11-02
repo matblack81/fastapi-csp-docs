@@ -82,6 +82,17 @@ def test_every_page_include_points_at_an_existing_docs_src_file() -> None:
     assert [path for path in included if not (ROOT / path).is_file()] == []
 
 
+def test_examples_page_includes_every_example() -> None:
+    """A new app in examples/ that the page misses stays out of the site with no error."""
+    page = (ROOT / "docs" / "examples.md").read_text(encoding="utf-8")
+    included = re.findall(r'--8<-- "examples/([^"]+)"', page)
+
+    assert "assisted_app.py" in included
+    assert sorted(included) == sorted(
+        path.name for path in (ROOT / "examples").glob("*.py") if path.name != "__init__.py"
+    )
+
+
 def test_reference_lists_the_default_asset_urls() -> None:
     """The generated reference prints the private constants' names, so the page spells out
     their values: a version bump that misses the page fails here."""
