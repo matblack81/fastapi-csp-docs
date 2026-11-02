@@ -111,6 +111,15 @@ def test_scoped_csp_gives_only_the_redoc_page_the_redoc_directives() -> None:
         assert entry in redoc_policy
 
 
+def test_scoped_csp_follows_a_mount_prefix() -> None:
+    app = FastAPI()
+    app.mount("/api", load("guides/redoc_scoped_csp").app)
+    client = TestClient(app)
+
+    assert "blob:" in client.get("/api/redoc").headers["content-security-policy"]
+    assert "blob:" not in client.get("/api/docs").headers["content-security-policy"]
+
+
 def test_disabled_search_needs_no_worker_src() -> None:
     client = TestClient(load("guides/redoc_disable_search").app)
 
@@ -156,6 +165,13 @@ def test_no_openapi_schema_skips_both_pages() -> None:
 
     assert client.get("/docs").status_code == 404
     assert client.get("/redoc").status_code == 404
+
+
+def test_no_openapi_schema_still_requires_the_built_in_docs_disabled() -> None:
+    app = FastAPI(openapi_url=None)
+
+    with pytest.raises(RuntimeError, match="docs_url=None"):
+        fastapi_csp_docs.setup(app)
 
 
 def test_swagger_ui_options_reach_the_init_script() -> None:
@@ -236,3 +252,6 @@ def test_manual_wiring_ignores_the_root_path_unless_the_route_reads_it() -> None
 
     assert 'src="/docs/swagger-initializer.js"' in plain.get("/docs").text
     assert 'src="/api/docs/swagger-initializer.js"' in aware.get("/docs").text
+    init_script = aware.get("/docs/swagger-initializer.js").text
+    assert 'url: "/api/openapi.json"' in init_script
+    assert '"/api/docs/oauth2-redirect"' in init_script

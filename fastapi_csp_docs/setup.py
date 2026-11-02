@@ -46,7 +46,8 @@ def setup(
     [Quick start](https://fastapi-csp-docs.matblack81.com/quickstart/).
 
     Silently skips wiring a route if `app.openapi_url` is `None` — there's no OpenAPI
-    schema for Swagger UI/ReDoc to render in that case.
+    schema for Swagger UI/ReDoc to render in that case. The `RuntimeError` check runs first,
+    so `FastAPI(openapi_url=None)` still needs `docs_url=None` and `redoc_url=None`.
 
     An asset URL that is a path on the app (it starts with a single `/`, like
     `"/static/swagger-ui-bundle.js"`) gets the request's ASGI `root_path` in front of it, the

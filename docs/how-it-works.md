@@ -10,7 +10,7 @@ description: What setup() checks and registers, how each request builds its URLs
 
 For each page it is asked to set up, `setup()` raises `RuntimeError` if the app's matching attribute (`app.docs_url` or `app.redoc_url`) is still set. Otherwise FastAPI's built-in page would serve the same path with its inline content.
 
-If `app.openapi_url` is `None`, there is no schema to render, and `setup()` skips the page with no warning, as FastAPI does.
+If `app.openapi_url` is `None`, there is no schema to render, and `setup()` skips the page with no warning, as FastAPI does. The `RuntimeError` check runs first, so `FastAPI(openapi_url=None)` still needs `docs_url=None` and `redoc_url=None`.
 
 ## 2. What `setup()` registers
 
@@ -44,4 +44,4 @@ Every step is a separate request to a URL, so `script-src` and `style-src` can m
 
 ## 5. How values are escaped
 
-The JSON in `swagger-initializer.js` is serialized with `<`, `>` and `&` written as `<`, `>` and `&`. The values interpolated into the HTML pages go through `html.escape()`.
+The JSON in `swagger-initializer.js` is serialized with `<`, `>` and `&` written as `\u003c`, `\u003e` and `\u0026`. The values interpolated into the HTML pages go through `html.escape()`.

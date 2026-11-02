@@ -10,7 +10,13 @@ Create the app with its built-in docs disabled, send your Content-Security-Polic
 --8<-- "docs_src/quickstart/app.py:snippet"
 ```
 
-Start the server and open `/docs` and `/redoc`: both pages render, and the browser console reports no CSP violations.
+Save the code as `main.py` and start the server:
+
+```bash
+uvicorn main:app --reload
+```
+
+Open `/docs` and `/redoc`: both pages render, and the browser console reports no CSP violations.
 
 === "Swagger UI"
 

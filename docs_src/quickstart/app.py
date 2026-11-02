@@ -1,7 +1,7 @@
+# --8<-- [start:snippet]
 from fastapi import FastAPI, Request
 from fastapi.responses import Response
 
-# --8<-- [start:snippet]
 import fastapi_csp_docs
 
 CSP = (
@@ -27,9 +27,9 @@ async def add_csp_header(request: Request, call_next) -> Response:
 
 
 fastapi_csp_docs.setup(app)
-# --8<-- [end:snippet]
 
 
 @app.get("/items")
 def list_items():
     return {"items": []}
+# --8<-- [end:snippet]

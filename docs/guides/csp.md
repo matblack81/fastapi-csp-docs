@@ -8,8 +8,10 @@ description: What each Content-Security-Policy directive does for the Swagger UI
 
 | Directive | Entries | Needed by |
 |---|---|---|
-| `default-src` | `'self'` | Everything without its own directive, including the app's schema and the generated script and CSS routes |
+| `default-src` | `'self'` | Everything without its own directive |
+| `script-src` | `'self'` | `swagger-initializer.js` and `oauth2-redirect.js` |
 | `script-src` | `https://cdn.jsdelivr.net` | The Swagger UI and ReDoc bundles |
+| `style-src` | `'self'` | `redoc.css` |
 | `style-src` | `https://cdn.jsdelivr.net` | `swagger-ui.css` |
 | `style-src` | `https://fonts.googleapis.com` | The stylesheet of [ReDoc's fonts](../advanced/fonts.md) |
 | `style-src` | Two `'sha256-...'` hashes | [ReDoc's runtime styles](redoc-csp.md#inline-styles) |
@@ -17,6 +19,7 @@ description: What each Content-Security-Policy directive does for the Swagger UI
 | `img-src` | `data:` | SVG icons the Swagger UI bundle inlines |
 | `img-src` | `https://fastapi.tiangolo.com` | The default favicon |
 | `img-src` | `https://cdn.redoc.ly` | [ReDoc's logo](redoc-csp.md#logo-image) |
+| `connect-src` | `'self'` | The OpenAPI schema |
 | `connect-src` | `https://cdn.jsdelivr.net` | The source maps of `swagger-ui.css` and `redoc.standalone.js`, which browser developer tools fetch when you inspect a source file |
 | `worker-src` | `'self' blob:` | [ReDoc's search worker](redoc-csp.md#web-worker) |
 

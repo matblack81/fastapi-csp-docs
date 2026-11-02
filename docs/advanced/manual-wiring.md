@@ -28,7 +28,7 @@ Asset URLs you leave out take the [pinned defaults](pinned-versions.md).
 
 ## `root_path`
 
-The generators use URLs as given. `setup()` adds the [`root_path`](reverse-proxy-and-sub-apps.md) on each request; in your own routes, read it from the request scope:
+The generators use URLs as given. `setup()` adds the [`root_path`](reverse-proxy-and-sub-apps.md) on each request; in your own routes, read it from the request scope and put it in front of every URL you pass:
 
 ```python
 --8<-- "docs_src/advanced/manual_wiring_root_path.py:snippet"
