@@ -27,9 +27,11 @@ jobs:
           filters: |
             src:
               - .github/workflows/test-redistribute.yml
+              - README.md
               - docs/**
               - docs_src/**
               - fastapi_csp_docs/**
+              - scripts/generate_readme.py
               - tests/**
               - .python-version
               - pyproject.toml

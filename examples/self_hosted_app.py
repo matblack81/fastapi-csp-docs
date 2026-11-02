@@ -58,7 +58,7 @@ CSP = (
     # file to point a real URL at instead), true regardless of whether redoc.standalone.js
     # itself is self-hosted or CDN-hosted. blob: is not an external origin. To drop it, wire
     # ReDoc by hand with get_redoc_html(disable_search=True) instead, as
-    # self_hosted_manual_app.py does -- see the README section on worker-src.
+    # self_hosted_manual_app.py does -- see docs/guides/redoc-csp.md.
     "worker-src 'self' blob:"
 )
 

@@ -66,7 +66,7 @@ CSP = (
     # regardless of whether redoc.standalone.js itself is self-hosted or CDN-hosted. Rather
     # than allow blob: workers, get_redoc_html() below is called with disable_search=True,
     # which skips building the search index entirely, so the worker is never created and
-    # this can stay 'self' with no blob: -- see the README section on worker-src.
+    # this can stay 'self' with no blob: -- see docs/guides/redoc-csp.md.
     "worker-src 'self'"
 )
 
