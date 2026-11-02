@@ -2,6 +2,8 @@
 
 ## Latest Changes
 
+## 1.1.0 (2026-11-02)
+
 ### Breaking Changes
 
 * 📌 Load Swagger UI 5.34.0 and ReDoc 2.5.4 instead of the floating @5 and @2 tags. PR [#72](https://github.com/matblack81/fastapi-csp-docs/pull/72) by [@matblack81](https://github.com/matblack81).
