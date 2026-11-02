@@ -12,6 +12,7 @@
 
 ### Docs
 
+* 📝 Link the README's release notes to the documentation site. PR [#91](https://github.com/matblack81/fastapi-csp-docs/pull/91) by [@matblack81](https://github.com/matblack81).
 * 📝 Fix CSP, `root_path` and Quick start errors in the documentation. PR [#89](https://github.com/matblack81/fastapi-csp-docs/pull/89) by [@matblack81](https://github.com/matblack81).
 * 📝 Generate the README from the documentation site. PR [#87](https://github.com/matblack81/fastapi-csp-docs/pull/87) by [@matblack81](https://github.com/matblack81).
 * 🍱 Center the shield in the logo and the favicon. PR [#86](https://github.com/matblack81/fastapi-csp-docs/pull/86) by [@matblack81](https://github.com/matblack81).
