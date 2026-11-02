@@ -22,6 +22,7 @@
 
 ### Internal
 
+* ⬆ Bump the python-packages group with 7 updates. PR [#81](https://github.com/matblack81/fastapi-csp-docs/pull/81) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump the github-actions group with 5 updates. PR [#80](https://github.com/matblack81/fastapi-csp-docs/pull/80) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump fastapi from 0.141.1 to 0.162.0. PR [#74](https://github.com/matblack81/fastapi-csp-docs/pull/74) by [@matblack81](https://github.com/matblack81).
 * ✅ Snapshot the pages every docs generator emits. PR [#71](https://github.com/matblack81/fastapi-csp-docs/pull/71) by [@matblack81](https://github.com/matblack81).
