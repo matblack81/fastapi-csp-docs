@@ -12,6 +12,7 @@
 
 ### Docs
 
+* 🍱 Add the logo and the screenshots to the documentation site. PR [#84](https://github.com/matblack81/fastapi-csp-docs/pull/84) by [@matblack81](https://github.com/matblack81).
 * 📝 Add the documentation site pages, with tested code examples. PR [#79](https://github.com/matblack81/fastapi-csp-docs/pull/79) by [@matblack81](https://github.com/matblack81).
 * 📝 Add the documentation site skeleton with a strict build in CI. PR [#78](https://github.com/matblack81/fastapi-csp-docs/pull/78) by [@matblack81](https://github.com/matblack81).
 * 📝 Document the CSP violations caused by Markdown in Swagger UI descriptions. PR [#77](https://github.com/matblack81/fastapi-csp-docs/pull/77) by [@matblack81](https://github.com/matblack81).
