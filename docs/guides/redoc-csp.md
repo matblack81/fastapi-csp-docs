@@ -27,6 +27,14 @@ Allow it with `worker-src 'self' blob:`, or remove search. `setup()` can't turn 
 --8<-- "docs_src/guides/redoc_disable_search.py:snippet"
 ```
 
+=== "With search"
+
+    ![ReDoc listing the results of a search for items in the side menu](../assets/screenshots/redoc-search.jpg){ loading=lazy }
+
+=== "With `disable_search=True`"
+
+    ![ReDoc with no search box above the side menu](../assets/screenshots/redoc-no-search.jpg){ loading=lazy }
+
 The page then has no search box and creates no worker, so the policy needs no `worker-src`. The full app is [`examples/redoc_disable_search_app.py`](https://github.com/matblack81/fastapi-csp-docs/blob/main/examples/redoc_disable_search_app.py).
 
 ## Logo image

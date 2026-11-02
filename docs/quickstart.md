@@ -12,6 +12,14 @@ Create the app with its built-in docs disabled, send your Content-Security-Polic
 
 Start the server and open `/docs` and `/redoc`: both pages render, and the browser console reports no CSP violations.
 
+=== "Swagger UI"
+
+    ![Swagger UI at /docs, listing GET /items](assets/screenshots/quickstart-swagger.jpg)
+
+=== "ReDoc"
+
+    ![ReDoc at /redoc, with the search box and GET /items in the side menu](assets/screenshots/quickstart-redoc.jpg)
+
 `setup()` registers these routes, all excluded from the OpenAPI schema:
 
 | Route | Serves |

@@ -2,7 +2,13 @@
 description: CSP-safe replacements for FastAPI's built-in /docs, /redoc, and OAuth2 redirect endpoints, with no inline script or style.
 ---
 
-# FastAPI CSP Docs
+<div class="hero-logo" markdown>
+![FastAPI CSP Docs logo](assets/images/logo.svg){ width=128 }
+</div>
+
+# FastAPI CSP Docs { .hero }
+
+<p class="hero-tagline">CSP-safe Swagger UI, ReDoc and OAuth2 redirect pages for FastAPI, so your Content-Security-Policy can drop 'unsafe-inline'.</p>
 
 FastAPI's built-in `/docs`, `/redoc`, and OAuth2 redirect pages embed inline `<script>`/`<style>` tags, so they break under a Content-Security-Policy without `'unsafe-inline'`. Following FastAPI's own ["Custom Docs UI Static Assets"](https://fastapi.tiangolo.com/how-to/custom-docs-ui-assets/) recipe only swaps the CDN URLs for local ones; the inline content stays. `fastapi-csp-docs` replaces all three pages with versions that load every script and stylesheet from a separate endpoint, with no inline content anywhere.
 

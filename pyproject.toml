@@ -45,6 +45,7 @@ Changelog = "https://github.com/matblack81/fastapi-csp-docs/blob/main/release-no
 dev = [
     { include-group = "tests" },
     { include-group = "docs" },
+    { include-group = "screenshots" },
     "ruff>=0.14.0",
     "mypy>=1.17.0",
     "prek >=0.2.22",
@@ -73,6 +74,13 @@ docs = [
     "zensical>=0.0.67",
     "mkdocstrings[python]>=1.0.6",
     "ruff>=0.14.0",
+]
+
+# scripts/build_icons.py and scripts/docs_screenshots.py: render the logo and the docs in a real browser
+screenshots = [
+    "playwright>=1.49.0",
+    "pillow>=13.0.0; python_version >= '3.11'",
+    "uvicorn>=0.49.0",
 ]
 
 [tool.hatch.version]
