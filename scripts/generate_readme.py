@@ -40,7 +40,7 @@ HEADER = f"""<p align="center">
 
 FOOTER = f"""## Release Notes
 
-[RELEASE_NOTES]({REPO_URL}/blob/main/release-notes.md)
+[Release notes]({SITE_URL}changelog/)
 
 ---
 
