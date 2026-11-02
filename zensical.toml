@@ -6,6 +6,7 @@ repo_url = "https://github.com/matblack81/fastapi-csp-docs"
 repo_name = "matblack81/fastapi-csp-docs"
 copyright = "Copyright &copy; 2026 Matteo Nieddu &middot; <a href=\"https://github.com/matblack81/fastapi-csp-docs/blob/main/LICENSE\">MIT License</a>"
 edit_uri = "edit/main/docs/"
+extra_css = ["stylesheets/extra.css"]
 
 nav = [
   { "Home" = "index.md" },
@@ -34,6 +35,9 @@ nav = [
 [project.theme]
 variant = "classic"
 language = "en"
+logo = "assets/images/logo-header.svg"
+favicon = "assets/images/favicon.svg"
+custom_dir = "overrides"
 features = [
   "content.code.annotate",
   "content.code.copy",
@@ -60,16 +64,16 @@ toggle.name = "Switch to light mode"
 [[project.theme.palette]]
 media = "(prefers-color-scheme: light)"
 scheme = "default"
-primary = "teal"
-accent = "amber"
+primary = "deep-orange"
+accent = "orange"
 toggle.icon = "material/brightness-7"
 toggle.name = "Switch to dark mode"
 
 [[project.theme.palette]]
 media = "(prefers-color-scheme: dark)"
 scheme = "slate"
-primary = "teal"
-accent = "amber"
+primary = "deep-orange"
+accent = "orange"
 toggle.icon = "material/brightness-4"
 toggle.name = "Switch to system preference"
 

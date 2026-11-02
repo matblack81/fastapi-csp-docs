@@ -5,6 +5,7 @@ auto-labels:
     - docs/**
     - docs_src/**
     - zensical.toml
+    - overrides/**
   internal:
     - .github/**
     - scripts/**

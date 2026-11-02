@@ -36,6 +36,7 @@ jobs:
               - fastapi_csp_docs/**
               - release-notes.md
               - zensical.toml
+              - overrides/**
               - scripts/docs-build.sh
               - pyproject.toml
               - uv.lock

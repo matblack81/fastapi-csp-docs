@@ -42,3 +42,8 @@ async def redoc_html() -> HTMLResponse:
 async def redoc_css() -> Response:
     return fastapi_csp_docs.get_redoc_css()
 # --8<-- [end:snippet]
+
+
+@app.get("/items")
+def list_items():
+    return {"items": []}
