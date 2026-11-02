@@ -26,13 +26,15 @@ jobs:
       - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4.0.3
         id: filter
         with:
-          # release-notes.md is included by docs/changelog.md, fastapi_csp_docs/ by the reference
+          # release-notes.md is included by docs/changelog.md, examples/ by docs/examples.md,
+          # fastapi_csp_docs/ by the reference
           filters: |
             docs:
               - .github/workflows/build-docs.yml
               - .github/workflows/deploy-docs.yml
               - docs/**
               - docs_src/**
+              - examples/**
               - fastapi_csp_docs/**
               - release-notes.md
               - zensical.toml

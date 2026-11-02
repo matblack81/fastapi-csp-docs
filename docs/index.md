@@ -1,4 +1,5 @@
 ---
+title: CSP-safe docs pages for FastAPI
 description: CSP-safe replacements for FastAPI's built-in /docs, /redoc, and OAuth2 redirect endpoints, with no inline script or style.
 ---
 
@@ -11,6 +12,18 @@ description: CSP-safe replacements for FastAPI's built-in /docs, /redoc, and OAu
 <p class="hero-tagline">CSP-safe Swagger UI, ReDoc and OAuth2 redirect pages for FastAPI, so your Content-Security-Policy can drop 'unsafe-inline'.</p>
 
 FastAPI's built-in `/docs`, `/redoc`, and OAuth2 redirect pages embed inline `<script>`/`<style>` tags, so they break under a Content-Security-Policy without `'unsafe-inline'`. Following FastAPI's own ["Custom Docs UI Static Assets"](https://fastapi.tiangolo.com/how-to/custom-docs-ui-assets/) recipe only swaps the CDN URLs for local ones; the inline content stays. `fastapi-csp-docs` replaces all three pages with versions that load every script and stylesheet from a separate endpoint, with no inline content anywhere.
+
+## What you get
+
+Swagger UI and ReDoc keep working under a Content-Security-Policy with no `'unsafe-inline'`. These screenshots come from the [Quick start](quickstart.md) app, with its CSP enforced.
+
+=== "Swagger UI"
+
+    ![Swagger UI at /docs, listing GET /items](assets/screenshots/quickstart-swagger.jpg){ loading=lazy }
+
+=== "ReDoc"
+
+    ![ReDoc at /redoc, with the search box and GET /items in the side menu](assets/screenshots/quickstart-redoc.jpg){ loading=lazy }
 
 ## Features
 
