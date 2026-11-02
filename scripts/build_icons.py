@@ -34,10 +34,10 @@ WORDMARK_FONT_SIZE = 128
 def square(favicon_svg: str) -> str:
     """The favicon without rounded corners, for iOS, which rounds them itself, and a little
     smaller inside, so the symbol doesn't touch the edge once it does."""
-    for expected in (' rx="14"', "scale(1.1)"):
+    for expected in (' rx="14"', "scale(1)"):
         if expected not in favicon_svg:
             raise RuntimeError(f"favicon.svg no longer contains {expected!r}: update square() to match it")
-    return favicon_svg.replace(' rx="14"', "").replace("scale(1.1)", "scale(1)")
+    return favicon_svg.replace(' rx="14"', "").replace("scale(1)", "scale(0.9)")
 
 
 def render(page: Page, svg: str, size: int) -> Image.Image:
