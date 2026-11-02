@@ -26,6 +26,7 @@
 
 ### Internal
 
+* 👷 Let a failed docs deploy be re-run. PR [#88](https://github.com/matblack81/fastapi-csp-docs/pull/88) by [@matblack81](https://github.com/matblack81).
 * ⬆ Bump pre-commit hooks. PR [#83](https://github.com/matblack81/fastapi-csp-docs/pull/83) by [@matblack81](https://github.com/matblack81).
 * 🐛 Fix the pre-commit hooks bump workflow after the prek command rename. PR [#82](https://github.com/matblack81/fastapi-csp-docs/pull/82) by [@matblack81](https://github.com/matblack81).
 * ⬆ Bump the python-packages group with 7 updates. PR [#81](https://github.com/matblack81/fastapi-csp-docs/pull/81) by [@dependabot[bot]](https://github.com/apps/dependabot).
