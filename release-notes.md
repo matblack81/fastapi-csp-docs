@@ -2,6 +2,8 @@
 
 ## Latest Changes
 
+## 1.1.1 (2026-11-17)
+
 ### Internal
 
 * ⬆ Bump opentelemetry-api from 1.45.1 to 1.45.2. PR [#93](https://github.com/matblack81/fastapi-csp-docs/pull/93) by [@dependabot[bot]](https://github.com/apps/dependabot).
